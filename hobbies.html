@@ -1,76 +1,55 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-page="hobbies">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Hobbies | Portfolio</title>
-  <link rel="stylesheet" href="assets/css/style.css"/>
-  <script defer src="assets/js/script.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
+
 <body>
-  <div id="page-loader" aria-hidden="true">
-    <div class="loader-frame"><div class="loader-fill"></div></div>
-    <div class="loader-text">Loading...</div>
+  <div id="loader" class="loader" aria-label="Loading">
+    <div class="loader__frame" aria-hidden="true"></div>
+    <div class="loader__text">Loading…</div>
   </div>
+  <div id="spark-layer" aria-hidden="true"></div>
+  <div id="scroll-progress" class="scroll-progress" aria-hidden="true"></div>
 
   <header class="site-header">
-    <nav class="navbar container" aria-label="Primary">
-      <a class="brand" href="index.html">your-portfolio</a>
-      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
-        <span></span><span></span><span></span>
+    <nav class="nav container" aria-label="Primary navigation">
+      <a class="brand" href="index.html">Harsh Bari</a>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
+        <span class="nav__hamburger"></span>
       </button>
-      <ul id="nav-menu" class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="career_timeline.html">Career Timeline</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="achievements.html">Achievements</a></li>
-        <li><a class="active" href="hobbies.html">Hobbies</a></li>
-      </ul>
+
+      <div class="nav__menu" id="navMenu">
+        <a class="nav__link" href="index.html">Home</a>
+        <a class="nav__link" href="career_timeline.html">Career Timeline</a>
+        <a class="nav__link" href="projects.html">Projects</a>
+        <a class="nav__link" href="achievements.html">Achievements</a>
+        <a class="nav__link active" href="hobbies.html">Hobbies</a>
+      </div>
     </nav>
-    <div id="scroll-progress" aria-hidden="true"></div>
   </header>
 
   <main class="container page">
     <section class="card">
       <div class="section-head">
-        <h1>Hobbies</h1>
-        <p class="muted">Add sections like Blogs, Robotics, Photography, etc. Tiles open external links.</p>
+        <h1 class="h1">Hobbies</h1>
+        <p class="muted">Turning “Why study this?” into “Ohh, that’s why!” Data Science student sharing real-life twists to make boring subjects a bit more fun. No theory, just vibes.</p>
       </div>
 
-      <!-- Example dynamic section: Blogs -->
-      <section class="subcard">
-        <div class="row">
-          <h2>Blogs</h2>
-          <button class="btn ghost small" type="button" id="add-blog">Add dummy blog</button>
-        </div>
-
-        <div class="tiles-grid" id="blogs-grid">
-          <a class="tile link-tile" href="https://example.com/blog1" target="_blank" rel="noreferrer"
-             data-thumb="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=900&q=60">
-            <div class="tile-top">
-              <div class="tile-icon" aria-hidden="true">⬡</div>
-              <img class="tile-thumb remote-thumb auto-hide-img" alt="Blog thumbnail"/>
-            </div>
-            <div class="tile-title"><strong>Blog Title (Dummy)</strong></div>
-            <div class="tile-sub muted">example.com/blog1</div>
-          </a>
-
-          <a class="tile link-tile" href="https://example.com/blog2" target="_blank" rel="noreferrer"
-             data-thumb="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=900&q=60">
-            <div class="tile-top">
-              <div class="tile-icon" aria-hidden="true">⬡</div>
-              <img class="tile-thumb remote-thumb auto-hide-img" alt="Blog thumbnail"/>
-            </div>
-            <div class="tile-title"><strong>Another Blog (Dummy)</strong></div>
-            <div class="tile-sub muted">example.com/blog2</div>
-          </a>
-        </div>
-      </section>
+      <div id="hobbiesSections"></div>
     </section>
   </main>
 
-  <footer class="footer container">
-    <small>© <span id="year"></span> Harsh Bari.</small>
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span class="muted">© <span id="year"></span> Harsh Bari</span>
+    </div>
   </footer>
+
+  <script src="assets/js/script.js"></script>
 </body>
 </html>

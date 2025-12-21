@@ -1,125 +1,57 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-page="projects">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Projects | Portfolio</title>
-  <link rel="stylesheet" href="assets/css/style.css"/>
-  <script defer src="assets/js/script.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
+
 <body>
-  <div id="page-loader" aria-hidden="true">
-    <div class="loader-frame"><div class="loader-fill"></div></div>
-    <div class="loader-text">Loading...</div>
+  <div id="loader" class="loader" aria-label="Loading">
+    <div class="loader__frame" aria-hidden="true"></div>
+    <div class="loader__text">Loading…</div>
   </div>
+  <div id="spark-layer" aria-hidden="true"></div>
+  <div id="scroll-progress" class="scroll-progress" aria-hidden="true"></div>
 
   <header class="site-header">
-    <nav class="navbar container" aria-label="Primary">
-      <a class="brand" href="index.html">your-portfolio</a>
-      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
-        <span></span><span></span><span></span>
+    <nav class="nav container" aria-label="Primary navigation">
+      <a class="brand" href="index.html">Harsh Bari</a>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
+        <span class="nav__hamburger"></span>
       </button>
-      <ul id="nav-menu" class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="career_timeline.html">Career Timeline</a></li>
-        <li><a class="active" href="projects.html">Projects</a></li>
-        <li><a href="achievements.html">Achievements</a></li>
-        <li><a href="hobbies.html">Hobbies</a></li>
-      </ul>
+
+      <div class="nav__menu" id="navMenu">
+        <a class="nav__link" href="index.html">Home</a>
+        <a class="nav__link" href="career_timeline.html">Career Timeline</a>
+        <a class="nav__link active" href="projects.html">Projects</a>
+        <a class="nav__link" href="achievements.html">Achievements</a>
+        <a class="nav__link" href="hobbies.html">Hobbies</a>
+      </div>
     </nav>
-    <div id="scroll-progress" aria-hidden="true"></div>
   </header>
 
   <main class="container page">
     <section class="card">
       <div class="section-head">
-        <h1>Projects</h1>
-        <p class="muted">Click a tile to open details in Project Description page.</p>
+        <h1 class="h1">Projects</h1>
+        <p class="muted">Click a tile to open full details on the Project Description page.</p>
       </div>
 
-      <div class="tiles-grid" id="projects-grid">
-        <!-- 3 tiles in a row on desktop, responsive on smaller screens -->
-        <button class="tile project-tile" type="button"
-          data-project='{
-            "id":"p1",
-            "title":"Smart Attendance (Dummy)",
-            "thumb":"assets/images/project1-thumb.jpg",
-            "problem":"Automate attendance using face recognition with basic reporting.",
-            "start":"Jan 2025",
-            "end":"Mar 2025",
-            "skills":["Python","OpenCV","SQL","React"],
-            "flow1":"assets/images/flow1.png",
-            "flow2":"assets/images/flow2.png",
-            "explain":"Short explanation here. Replace with your actual project details.",
-            "outputs":["assets/images/out1.png","assets/images/out2.png","assets/images/out3.png","assets/images/out4.png"],
-            "demo":"", 
-            "live":"https://example.com",
-            "repo":"https://github.com/example/repo"
-          }'>
-          <div class="tile-top">
-            <div class="tile-icon" aria-hidden="true">⬡</div>
-            <img class="tile-thumb auto-hide-img" src="assets/images/project1-thumb.jpg" alt="Project thumbnail"/>
-          </div>
-          <div class="tile-title"><strong>Smart Attendance (Dummy)</strong></div>
-          <div class="tile-sub muted">Click to view details</div>
-        </button>
-
-        <button class="tile project-tile" type="button"
-          data-project='{
-            "id":"p2",
-            "title":"Industrial Defect Detection (Dummy)",
-            "thumb":"",
-            "problem":"Detect surface defects with a lightweight ML pipeline for factory QA.",
-            "start":"Apr 2025",
-            "end":"Jun 2025",
-            "skills":["Python","ML","Docker"],
-            "flow1":"",
-            "flow2":"",
-            "explain":"Short explanation here. Replace with your actual project details.",
-            "outputs":["","","",""],
-            "demo":"https://drive.google.com/file/d/XXXXXXXX/view?usp=sharing",
-            "live":"",
-            "repo":"https://github.com/example/defect-detection"
-          }'>
-          <div class="tile-top">
-            <div class="tile-icon" aria-hidden="true">⬡</div>
-            <img class="tile-thumb auto-hide-img" src="" alt="Project thumbnail"/>
-          </div>
-          <div class="tile-title"><strong>Industrial Defect Detection (Dummy)</strong></div>
-          <div class="tile-sub muted">Click to view details</div>
-        </button>
-
-        <button class="tile project-tile" type="button"
-          data-project='{
-            "id":"p3",
-            "title":"Portfolio Website (Dummy)",
-            "thumb":"",
-            "problem":"Create a fast, responsive static portfolio hosted on GitHub Pages.",
-            "start":"Jul 2025",
-            "end":"Jul 2025",
-            "skills":["HTML","CSS","JavaScript"],
-            "flow1":"",
-            "flow2":"",
-            "explain":"Short explanation here. Replace with your actual project details.",
-            "outputs":["","","",""],
-            "demo":"",
-            "live":"https://example.github.io",
-            "repo":"https://github.com/example/portfolio"
-          }'>
-          <div class="tile-top">
-            <div class="tile-icon" aria-hidden="true">⬡</div>
-            <img class="tile-thumb auto-hide-img" src="" alt="Project thumbnail"/>
-          </div>
-          <div class="tile-title"><strong>Portfolio Website (Dummy)</strong></div>
-          <div class="tile-sub muted">Click to view details</div>
-        </button>
-
+      <div class="grid grid--3" id="projectsGrid" aria-label="Projects grid">
+        <!-- Tiles injected by JS from PROJECTS data -->
       </div>
     </section>
   </main>
 
-  <footer class="footer container">
-    <small>© <span id="year"></span> Harsh Bari.</small>
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span class="muted">© <span id="year"></span> Harsh Bari</span>
+    </div>
   </footer>
+
+  <script src="assets/js/script.js"></script>
 </body>
 </html>

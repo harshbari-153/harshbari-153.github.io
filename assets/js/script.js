@@ -1,248 +1,377 @@
-// Scroll progress bar pattern: scrollY / (scrollHeight - innerHeight) -> width% [web:6]
-document.addEventListener("DOMContentLoaded", () => {
-  // Footer year
-  const y = document.getElementById("year");
-  if (y) y.textContent = new Date().getFullYear();
+/* ========= Shared UI: nav, loader, scroll progress, click spark ========= */
 
-  // Hamburger menu
-  const toggle = document.querySelector(".nav-toggle");
-  const menu = document.getElementById("nav-menu");
-  if (toggle && menu) {
-    toggle.addEventListener("click", (e) => {
-      toggle.classList.toggle("is-open");
-      const open = toggle.classList.contains("is-open");
-      toggle.setAttribute("aria-expanded", String(open));
-      menu.classList.toggle("open", open);
-      sparkAtEvent(e);
-    });
+const $ = (sel, root = document) => root.querySelector(sel);
 
-    // Close menu when link clicked (mobile)
-    menu.addEventListener("click", (e) => {
-      const a = e.target.closest("a");
-      if (!a) return;
-      toggle.classList.remove("is-open");
-      toggle.setAttribute("aria-expanded", "false");
-      menu.classList.remove("open");
-    });
+function setYear() {
+  const y = $("#year");
+  if (y) y.textContent = String(new Date().getFullYear());
+}
+
+function hideLoaderWhenReady() {
+  const loader = $("#loader");
+  if (!loader) return;
+
+  // Keep it visible very briefly so the animation is noticeable
+  const minMs = 550;
+  const start = performance.now();
+
+  function done() {
+    const elapsed = performance.now() - start;
+    const wait = Math.max(0, minMs - elapsed);
+    setTimeout(() => loader.classList.add("is-hidden"), wait);
   }
 
-  // Scroll progress
-  const progress = document.getElementById("scroll-progress");
-  const updateProgress = () => {
-    if (!progress) return;
-    const total = document.documentElement.scrollHeight - window.innerHeight;
-    const pct = total <= 0 ? 0 : (window.scrollY / total) * 100;
-    progress.style.width = `${Math.min(100, Math.max(0, pct))}%`;
+  if (document.readyState === "complete") done();
+  else window.addEventListener("load", done, { once: true });
+}
+
+function setupNav() {
+  const toggle = $("#navToggle");
+  const menu = $("#navMenu");
+  if (!toggle || !menu) return;
+
+  const closeMenu = () => {
+    menu.classList.remove("is-open");
+    toggle.setAttribute("aria-expanded", "false");
   };
-  updateProgress();
-  window.addEventListener("scroll", updateProgress, { passive: true });
 
-  // Auto collapse missing images (local + remote)
-  initAutoHideImages();
-  initRemoteThumbs();
-
-  // Click/tap spark for any click
-  window.addEventListener("pointerdown", sparkAtEvent);
-
-  // Projects: forward data to project_description.html via sessionStorage
-  const projectTiles = document.querySelectorAll(".project-tile");
-  projectTiles.forEach(btn => {
-    btn.addEventListener("click", () => {
-      const raw = btn.getAttribute("data-project");
-      if (!raw) return;
-      sessionStorage.setItem("selectedProject", raw);
-      window.location.href = "project_description.html";
-    });
+  toggle.addEventListener("click", () => {
+    const isOpen = menu.classList.toggle("is-open");
+    toggle.setAttribute("aria-expanded", String(isOpen));
   });
 
-  // Project description: render from sessionStorage (fallback to dummy)
-  if (document.getElementById("pd-title")) {
-    renderProjectDescription();
-  }
-
-  // Hobbies: add dummy blog tile (shows "dynamic sections" idea)
-  const addBlog = document.getElementById("add-blog");
-  const blogsGrid = document.getElementById("blogs-grid");
-  if (addBlog && blogsGrid) {
-    addBlog.addEventListener("click", () => {
-      const a = document.createElement("a");
-      a.className = "tile link-tile";
-      a.href = "https://example.com/new-blog";
-      a.target = "_blank";
-      a.rel = "noreferrer";
-      a.setAttribute("data-thumb", "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=900&q=60");
-
-      a.innerHTML = `
-        <div class="tile-top">
-          <div class="tile-icon" aria-hidden="true">⬡</div>
-          <img class="tile-thumb remote-thumb auto-hide-img" alt="Blog thumbnail"/>
-        </div>
-        <div class="tile-title"><strong>New Blog (Dummy)</strong></div>
-        <div class="tile-sub muted">example.com/new-blog</div>
-      `;
-      blogsGrid.prepend(a);
-      initRemoteThumbs(a);
-      initAutoHideImages(a);
-    });
-  }
-
-  // Hide loader only after everything is ready
-  window.addEventListener("load", () => {
-    const loader = document.getElementById("page-loader");
-    if (loader) loader.classList.add("hidden");
+  // Close on link click (mobile)
+  menu.addEventListener("click", (e) => {
+    const a = e.target.closest("a");
+    if (a) closeMenu();
   });
-});
 
-function initAutoHideImages(root = document) {
-  const imgs = root.querySelectorAll("img.auto-hide-img");
-  imgs.forEach(img => {
-    const hide = () => img.classList.add("is-hidden");
+  // Close on outside click
+  document.addEventListener("click", (e) => {
+    if (menu.classList.contains("is-open")) {
+      if (!e.target.closest("#navMenu") && !e.target.closest("#navToggle")) closeMenu();
+    }
+  });
 
-    // Empty src => hide immediately
-    const src = (img.getAttribute("src") || "").trim();
-    if (!src) hide();
-
-    img.addEventListener("error", hide, { once: true });
-
-    // If loads but natural size is 0 (rare), hide
-    img.addEventListener("load", () => {
-      if (!img.naturalWidth || !img.naturalHeight) hide();
-    }, { once: true });
+  // Close on resize to desktop
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 720) closeMenu();
   });
 }
 
-function initRemoteThumbs(root = document) {
-  const thumbs = root.querySelectorAll("img.remote-thumb");
-  thumbs.forEach(img => {
-    const tile = img.closest("[data-thumb]");
-    if (!tile) return;
-    const url = tile.getAttribute("data-thumb");
-    if (url) img.src = url;
+function setupScrollProgress() {
+  const bar = $("#scroll-progress");
+  if (!bar) return;
+
+  const update = () => {
+    const doc = document.documentElement;
+    const scrollTop = doc.scrollTop || document.body.scrollTop;
+    const height = doc.scrollHeight - doc.clientHeight;
+    const pct = height > 0 ? (scrollTop / height) * 100 : 0;
+    bar.style.width = `${pct}%`;
+  };
+
+  update();
+  window.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", update);
+}
+
+function setupClickSpark() {
+  const layer = $("#spark-layer");
+  if (!layer) return;
+
+  function spawnSpark(x, y) {
+    const s = document.createElement("div");
+    s.className = "spark";
+    s.style.left = `${x}px`;
+    s.style.top = `${y}px`;
+    layer.appendChild(s);
+    s.addEventListener("animationend", () => s.remove(), { once: true });
+  }
+
+  document.addEventListener("pointerdown", (e) => {
+    // Avoid sparking on text selection drags; still keep simple
+    spawnSpark(e.clientX, e.clientY);
+  }, { passive: true });
+}
+
+/* ========= Data: Projects + Hobbies (Blogs) ========= */
+
+const PROJECTS = [
+  {
+    id: "p1",
+    title: "Retail Demand Forecasting (Dummy)",
+    thumbnail: "assets/images/project1.jpg", // optional
+    problem: "Predict product demand to reduce stockouts and overstocking (dummy text).",
+    startDate: "Jan 2025",
+    endDate: "Mar 2025",
+    skills: [
+      { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" },
+      { name: "Pandas", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original-wordmark.svg" },
+      { name: "Streamlit", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/streamlit/streamlit-original-wordmark.svg" },
+    ],
+    flowcharts: ["assets/images/flow1.png", "assets/images/flow2.png"],
+    explanation: "This project ingests sales data, cleans it, trains a model, and shows forecasts in a simple UI (dummy).",
+    outputs: ["assets/images/out1.png", "assets/images/out2.png", "assets/images/out3.png", "assets/images/out4.png"],
+    video: "", // paste Google Drive preview link OR keep empty
+    liveLink: "https://example.com/live",
+    githubLink: "https://github.com/your/repo"
+  },
+  {
+    id: "p2",
+    title: "Resume Parser + Ranking (Dummy)",
+    thumbnail: "", // no image -> will collapse
+    problem: "Extract candidate info from PDFs and rank candidates using skill matching (dummy text).",
+    startDate: "Apr 2025",
+    endDate: "Jun 2025",
+    skills: [
+      { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" },
+      { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" },
+      { name: "MySQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" },
+    ],
+    flowcharts: ["", ""],
+    explanation: "Uploads resume PDFs, extracts text, normalizes skills, computes a score, and renders results (dummy).",
+    outputs: ["", "", "", ""],
+    video: "", // example: "https://drive.google.com/file/d/FILE_ID/preview"
+    liveLink: "https://example.com/resume-parser",
+    githubLink: "https://github.com/your/repo2"
+  }
+];
+
+const HOBBIES = [
+  {
+    sectionTitle: "Blogs",
+    items: [
+      {
+        title: "C Practice Challenge I: Control Flow, Loops & Arrays",
+        url: "https://medium.com/@bari.harsh2001/c-practice-challenge-i-control-flow-loops-arrays-d7bdd2a9ab3b",
+        thumb: "https://miro.medium.com/v2/resize:fit:1100/format:webp/1*o9rqgDJQBFLwPQK3dfEx_Q.png"
+      },
+      {
+        title: "C Practice Challenge II: Strings, Functions,File Handling & Structures",
+        url: "https://medium.com/@bari.harsh2001/c-practice-challenge-ii-strings-functions-file-handling-structures-5ecaaa1fcae3",
+        thumb: "https://miro.medium.com/v2/resize:fit:1100/format:webp/1*z1PhdndOwbG1Rp7lU7zkRw.png"
+      },
+      {
+        title: "Unlock Hidden Secrets with (a+b)² = a² + 2ab + b²",
+        url: "https://medium.com/@bari.harsh2001/unlock-hidden-secrets-with-a-b-²-a²-2ab-b²-8b9490cfb10d",
+        thumb: "https://miro.medium.com/v2/resize:fit:640/format:webp/1*EtArJKsPkFa6Uice2wZcOg.png"
+      },
+      {
+        title: "Connecting Dots with Messy Relations and Strict Functions",
+        url: "https://medium.com/@bari.harsh2001/connecting-dots-with-messy-relations-and-strict-functions-cdc95a042bac",
+        thumb: "https://miro.medium.com/v2/resize:fit:1100/format:webp/1*GaaQjPVp1yC23Yg_EH5Tsw.jpeg"
+      }
+    ]
+  }
+];
+
+/* ========= Rendering ========= */
+
+function svgProjectIcon() {
+  // small inline svg (no extra assets)
+  return `
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M4 4h16v4H4V4zm0 6h10v10H4V10zm12 0h4v10h-4V10z"></path>
+    </svg>
+  `;
+}
+
+function renderProjectsGrid() {
+  const grid = $("#projectsGrid");
+  if (!grid) return;
+
+  grid.innerHTML = "";
+
+  PROJECTS.forEach(p => {
+    const a = document.createElement("a");
+    a.className = "tile";
+    a.href = `project_description.html?pid=${encodeURIComponent(p.id)}`;
+    a.setAttribute("aria-label", `Open project: ${p.title}`);
+
+    const thumbHtml = p.thumbnail
+      ? `<div class="tile__thumb media-box">
+           <img src="${p.thumbnail}" alt="${p.title} thumbnail" loading="lazy"
+                onerror="this.closest('.tile__thumb').classList.add('is-collapsed'); this.remove();" />
+         </div>`
+      : "";
+
+    a.innerHTML = `
+      <div class="tile__top">
+        <div class="tile__icon">${svgProjectIcon()}</div>
+        <h3 class="tile__title">${p.title}</h3>
+      </div>
+      ${thumbHtml}
+      <p class="muted small">Click to view full details</p>
+    `;
+
+    // Store full details locally (so you can edit in one place)
+    a.addEventListener("click", () => {
+      localStorage.setItem("selectedProjectId", p.id);
+    });
+
+    grid.appendChild(a);
   });
 }
 
-function sparkAtEvent(e) {
-  const x = e.clientX ?? (e.touches && e.touches[0]?.clientX);
-  const y = e.clientY ?? (e.touches && e.touches[0]?.clientY);
-  if (typeof x !== "number" || typeof y !== "number") return;
+function getProjectIdFromQueryOrStorage() {
+  const params = new URLSearchParams(location.search);
+  return params.get("pid") || localStorage.getItem("selectedProjectId") || PROJECTS[0]?.id;
+}
 
-  const s = document.createElement("span");
-  s.className = "spark";
-  s.style.left = `${x}px`;
-  s.style.top = `${y}px`;
-  document.body.appendChild(s);
-  s.addEventListener("animationend", () => s.remove(), { once: true });
+function embedVideoInto(container, url) {
+  // Expect Google Drive preview link or any embeddable iframe link
+  if (!url) return false;
+
+  const safeUrl = url.trim();
+  if (!safeUrl) return false;
+
+  container.innerHTML = `
+    <iframe
+      src="${safeUrl}"
+      allow="autoplay; encrypted-media"
+      allowfullscreen
+      title="Project demo video">
+    </iframe>
+  `;
+  return true;
 }
 
 function renderProjectDescription() {
-  const fallback = {
-    title: "Project Title",
-    thumb: "",
-    problem: "Problem statement not found. Open from Projects page.",
-    start: "",
-    end: "",
-    skills: ["HTML","CSS","JavaScript"],
-    flow1: "",
-    flow2: "",
-    explain: "—",
-    outputs: ["","","",""],
-    demo: "",
-    live: "",
-    repo: ""
-  };
+  if (document.documentElement.dataset.page !== "project-description") return;
 
-  let data = fallback;
-  try{
-    const raw = sessionStorage.getItem("selectedProject");
-    if (raw) data = JSON.parse(raw);
-  }catch(_){ /* ignore */ }
+  const pid = getProjectIdFromQueryOrStorage();
+  const p = PROJECTS.find(x => x.id === pid) || PROJECTS[0];
+  if (!p) return;
 
-  setText("pd-title", data.title || "Project");
-  setText("pd-dates", `${data.start || "—"} — ${data.end || "—"}`);
-  setText("pd-problem", data.problem || "—");
-  setText("pd-explain", data.explain || "—");
-
-  setSrc("pd-thumb", data.thumb);
-  setSrc("pd-flow1", data.flow1);
-  setSrc("pd-flow2", data.flow2);
-
-  const outs = Array.isArray(data.outputs) ? data.outputs : [];
-  setSrc("pd-out1", outs[0]);
-  setSrc("pd-out2", outs[1]);
-  setSrc("pd-out3", outs[2]);
-  setSrc("pd-out4", outs[3]);
-
-  // Skills floating
-  const skillsWrap = document.getElementById("pd-skills");
-  if (skillsWrap) {
-    skillsWrap.innerHTML = "";
-    (data.skills || []).forEach((sk) => {
-      const d = document.createElement("div");
-      d.className = "skill-float";
-      d.title = sk;
-      d.textContent = shortSkill(sk);
-      skillsWrap.appendChild(d);
-    });
-  }
+  $("#pdTitle").textContent = p.title;
+  $("#pdDates").textContent = `${p.startDate} — ${p.endDate}`;
+  $("#pdProblem").textContent = p.problem;
+  $("#pdExplain").textContent = p.explanation;
 
   // Links
-  const live = document.getElementById("pd-live");
-  const repo = document.getElementById("pd-repo");
-  setLinkOrHide(live, data.live);
-  setLinkOrHide(repo, data.repo);
+  const live = $("#pdLive");
+  const gh = $("#pdGitHub");
+  live.href = p.liveLink || "#";
+  gh.href = p.githubLink || "#";
+  if (!p.liveLink) live.classList.add("is-disabled");
+  if (!p.githubLink) gh.classList.add("is-disabled");
 
-  // Demo video: allow google drive share link (convert to preview) or embed link
-  const wrap = document.getElementById("pd-demo-wrap");
-  if (wrap) {
-    const url = (data.demo || "").trim();
-    if (!url) {
-      wrap.innerHTML = `<p class="muted">No demo video provided.</p>`;
-    } else {
-      const embed = googleDrivePreview(url) || url;
-      wrap.innerHTML = `<iframe src="${embed}" allow="autoplay; encrypted-media" allowfullscreen title="Demo video"></iframe>`;
-    }
-  }
-
-  // Re-check missing images
-  initAutoHideImages(document);
-}
-
-function setText(id, text){
-  const el = document.getElementById(id);
-  if (el) el.textContent = text ?? "";
-}
-
-function setSrc(id, src){
-  const el = document.getElementById(id);
-  if (!el) return;
-  const v = (src || "").trim();
-  el.setAttribute("src", v);
-  if (!v) el.classList.add("is-hidden");
-}
-
-function setLinkOrHide(a, href){
-  if (!a) return;
-  const v = (href || "").trim();
-  if (!v) {
-    a.style.display = "none";
+  // Thumbnail collapse if missing
+  const thumb = $("#pdThumb");
+  const thumbBox = $("#pdThumbBox");
+  if (p.thumbnail) {
+    thumb.src = p.thumbnail;
+    thumb.onerror = () => { thumbBox.classList.add("is-collapsed"); thumb.remove(); };
   } else {
-    a.style.display = "";
-    a.href = v;
+    thumbBox.classList.add("is-collapsed");
   }
+
+  // Skills
+  const skillsWrap = $("#pdSkills");
+  skillsWrap.innerHTML = "";
+  (p.skills || []).forEach(s => {
+    const img = document.createElement("img");
+    img.className = "skill-icon";
+    img.alt = s.name;
+    img.loading = "lazy";
+    img.src = s.icon;
+    skillsWrap.appendChild(img);
+  });
+
+  // Flowcharts
+  const f1 = $("#pdFlow1");
+  const f2 = $("#pdFlow2");
+  const flow = p.flowcharts || ["", ""];
+  [f1, f2].forEach((img, idx) => {
+    const url = flow[idx] || "";
+    if (!url) {
+      img.closest(".media-box").classList.add("is-collapsed");
+      return;
+    }
+    img.src = url;
+    img.onerror = () => { img.closest(".media-box").classList.add("is-collapsed"); img.remove(); };
+  });
+
+  // Outputs (4)
+  const outWrap = $("#pdOutputs");
+  outWrap.innerHTML = "";
+  (p.outputs || []).slice(0, 4).forEach((u) => {
+    const box = document.createElement("div");
+    box.className = "media-box";
+    if (!u) {
+      box.classList.add("is-collapsed");
+      return;
+    }
+    box.innerHTML = `<img class="collapsible-media" src="${u}" alt="Output image" loading="lazy"
+      onerror="this.closest('.media-box').classList.add('is-collapsed'); this.remove();" />`;
+    outWrap.appendChild(box);
+  });
+
+  // Video
+  const videoBlock = $("#pdVideoBlock");
+  const videoBox = $("#pdVideo");
+  const ok = embedVideoInto(videoBox, p.video);
+  if (!ok) videoBlock.style.display = "none";
 }
 
-function shortSkill(s){
-  const t = (s || "").trim();
-  if (!t) return "SK";
-  const map = { "JavaScript":"JS", "TypeScript":"TS", "Python":"Py", "OpenCV":"CV", "React":"Rx", "Docker":"Dk" };
-  if (map[t]) return map[t];
-  if (t.length <= 4) return t;
-  return t.slice(0,2).toUpperCase();
+function renderHobbies() {
+  if (document.documentElement.dataset.page !== "hobbies") return;
+
+  const host = $("#hobbiesSections");
+  host.innerHTML = "";
+
+  HOBBIES.forEach(section => {
+    const wrapper = document.createElement("section");
+    wrapper.className = "card card--soft mt";
+    wrapper.innerHTML = `
+      <div class="section-head">
+        <h2 class="h2">${section.sectionTitle}</h2>
+        <p class="muted small">Click a tile to open.</p>
+      </div>
+      <div class="grid grid--3"></div>
+    `;
+
+    const grid = $(".grid", wrapper);
+
+    section.items.forEach(item => {
+      const a = document.createElement("a");
+      a.className = "tile";
+      a.href = item.url;
+      a.target = "_blank";
+      a.rel = "noreferrer";
+
+      a.innerHTML = `
+        <div class="tile__top">
+          <div class="tile__icon">${svgProjectIcon()}</div>
+          <h3 class="tile__title">${item.title}</h3>
+        </div>
+        <div class="tile__thumb">
+          <img src="${item.thumb}" alt="${item.title} thumbnail" loading="lazy"
+               onerror="this.closest('.tile__thumb').classList.add('is-collapsed'); this.remove();" />
+        </div>
+        <p class="muted small"></p>
+      `;
+
+      grid.appendChild(a);
+    });
+
+    host.appendChild(wrapper);
+  });
 }
 
-function googleDrivePreview(url){
-  // supports: https://drive.google.com/file/d/<ID>/view?...
-  const m = url.match(/drive\.google\.com\/file\/d\/([^/]+)\//);
-  if (!m) return null;
-  return `https://drive.google.com/file/d/${m[1]}/preview`;
+/* ========= Init ========= */
+
+function init() {
+  setYear();
+  hideLoaderWhenReady();
+  setupNav();
+  setupScrollProgress();
+  setupClickSpark();
+
+  renderProjectsGrid();
+  renderProjectDescription();
+  renderHobbies();
 }
+
+init();
