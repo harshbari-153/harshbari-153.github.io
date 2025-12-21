@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Project Description | Harsh Bari</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body data-page="project-detail">
+  <div id="loader">
+    <div class="loader-border loader-border-top"></div>
+    <div class="loader-border loader-border-right"></div>
+    <div class="loader-border loader-border-bottom"></div>
+    <div class="loader-border loader-border-left"></div>
+  </div>
+
+  <div id="scroll-progress"></div>
+  <div id="click-spark-container"></div>
+
+  <header class="site-header">
+    <nav class="navbar">
+      <div class="nav-logo">Harsh Bari</div>
+      <button class="hamburger" aria-label="Toggle navigation">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="career_timeline.html">Career Timeline</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="achievements.html">Achievements</a></li>
+        <li><a href="hobbies.html">Hobbies</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="page-container">
+    <article class="project-detail">
+      <header class="project-detail-header">
+        <div class="project-detail-text">
+          <h1 id="project-title">Project Title</h1>
+          <p id="project-dates"><strong>Duration:</strong> <span></span></p>
+          <p id="project-problem"><strong>Problem Statement:</strong> <span></span></p>
+        </div>
+
+        <!-- Thumbnail (optional) -->
+        <div class="project-thumbnail optional-image">
+          <!-- <img id="project-thumbnail-img" src="" alt="Project Thumbnail" /> -->
+        </div>
+      </header>
+
+      <section class="project-skills">
+        <h2>Skills Used</h2>
+        <div class="skills-icons" id="project-skills-icons">
+          <!-- Floating badges auto-filled from script for dummy data; you can hard-code -->
+        </div>
+      </section>
+
+      <!-- Flowchart images (2 optional) -->
+      <section class="project-flowcharts">
+        <h2>Flowcharts</h2>
+        <div class="image-row">
+          <div class="optional-image">
+            <!-- <img src="assets/images/flow1.png" alt="Flowchart 1" /> -->
+          </div>
+          <div class="optional-image">
+            <!-- <img src="assets/images/flow2.png" alt="Flowchart 2" /> -->
+          </div>
+        </div>
+      </section>
+
+      <section class="project-description">
+        <h2>What this project does</h2>
+        <p id="project-description-text">
+          <!-- Short explanation goes here; replace with your own -->
+        </p>
+      </section>
+
+      <!-- Output images (up to 4 optional) -->
+      <section class="project-outputs">
+        <h2>Output Screens</h2>
+        <div class="image-grid-4">
+          <div class="optional-image"><!-- <img src="" alt="Output 1" /> --></div>
+          <div class="optional-image"><!-- <img src="" alt="Output 2" /> --></div>
+          <div class="optional-image"><!-- <img src="" alt="Output 3" /> --></div>
+          <div class="optional-image"><!-- <img src="" alt="Output 4" /> --></div>
+        </div>
+      </section>
+
+      <!-- Demo video -->
+      <section class="project-demo">
+        <h2>Demo Video</h2>
+        <!-- Either hide iframe or provide Google Drive / YouTube link -->
+        <!--
+        <div class="video-wrapper">
+          <iframe src="YOUR_EMBED_URL_HERE" title="Project Demo" allowfullscreen loading="lazy"></iframe>
+        </div>
+        -->
+      </section>
+
+      <!-- Links -->
+      <section class="project-links">
+        <h2>Links</h2>
+        <p>
+          <strong>Live Project:</strong>
+          <a id="project-live-link" href="#" target="_blank" rel="noopener">Open</a>
+        </p>
+        <p>
+          <strong>GitHub Repository:</strong>
+          <a id="project-github-link" href="#" target="_blank" rel="noopener">Open</a>
+        </p>
+      </section>
+    </article>
+  </main>
+
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
