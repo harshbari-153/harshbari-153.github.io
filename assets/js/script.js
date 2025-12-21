@@ -1,195 +1,248 @@
-// Simple loader hide
-window.addEventListener("load", () => {
-  const loader = document.getElementById("loader");
-  if (loader) {
-    setTimeout(() => {
-      loader.style.opacity = "0";
-      loader.style.pointerEvents = "none";
-      loader.style.transition = "opacity 0.25s ease";
-      setTimeout(() => loader.remove(), 250);
-    }, 400);
+// Scroll progress bar pattern: scrollY / (scrollHeight - innerHeight) -> width% [web:6]
+document.addEventListener("DOMContentLoaded", () => {
+  // Footer year
+  const y = document.getElementById("year");
+  if (y) y.textContent = new Date().getFullYear();
+
+  // Hamburger menu
+  const toggle = document.querySelector(".nav-toggle");
+  const menu = document.getElementById("nav-menu");
+  if (toggle && menu) {
+    toggle.addEventListener("click", (e) => {
+      toggle.classList.toggle("is-open");
+      const open = toggle.classList.contains("is-open");
+      toggle.setAttribute("aria-expanded", String(open));
+      menu.classList.toggle("open", open);
+      sparkAtEvent(e);
+    });
+
+    // Close menu when link clicked (mobile)
+    menu.addEventListener("click", (e) => {
+      const a = e.target.closest("a");
+      if (!a) return;
+      toggle.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+      menu.classList.remove("open");
+    });
   }
+
+  // Scroll progress
+  const progress = document.getElementById("scroll-progress");
+  const updateProgress = () => {
+    if (!progress) return;
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = total <= 0 ? 0 : (window.scrollY / total) * 100;
+    progress.style.width = `${Math.min(100, Math.max(0, pct))}%`;
+  };
+  updateProgress();
+  window.addEventListener("scroll", updateProgress, { passive: true });
+
+  // Auto collapse missing images (local + remote)
+  initAutoHideImages();
+  initRemoteThumbs();
+
+  // Click/tap spark for any click
+  window.addEventListener("pointerdown", sparkAtEvent);
+
+  // Projects: forward data to project_description.html via sessionStorage
+  const projectTiles = document.querySelectorAll(".project-tile");
+  projectTiles.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const raw = btn.getAttribute("data-project");
+      if (!raw) return;
+      sessionStorage.setItem("selectedProject", raw);
+      window.location.href = "project_description.html";
+    });
+  });
+
+  // Project description: render from sessionStorage (fallback to dummy)
+  if (document.getElementById("pd-title")) {
+    renderProjectDescription();
+  }
+
+  // Hobbies: add dummy blog tile (shows "dynamic sections" idea)
+  const addBlog = document.getElementById("add-blog");
+  const blogsGrid = document.getElementById("blogs-grid");
+  if (addBlog && blogsGrid) {
+    addBlog.addEventListener("click", () => {
+      const a = document.createElement("a");
+      a.className = "tile link-tile";
+      a.href = "https://example.com/new-blog";
+      a.target = "_blank";
+      a.rel = "noreferrer";
+      a.setAttribute("data-thumb", "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=900&q=60");
+
+      a.innerHTML = `
+        <div class="tile-top">
+          <div class="tile-icon" aria-hidden="true">⬡</div>
+          <img class="tile-thumb remote-thumb auto-hide-img" alt="Blog thumbnail"/>
+        </div>
+        <div class="tile-title"><strong>New Blog (Dummy)</strong></div>
+        <div class="tile-sub muted">example.com/new-blog</div>
+      `;
+      blogsGrid.prepend(a);
+      initRemoteThumbs(a);
+      initAutoHideImages(a);
+    });
+  }
+
+  // Hide loader only after everything is ready
+  window.addEventListener("load", () => {
+    const loader = document.getElementById("page-loader");
+    if (loader) loader.classList.add("hidden");
+  });
 });
 
-// Scroll progress bar
-(function () {
-  const bar = document.getElementById("scroll-progress");
-  if (!bar) return;
+function initAutoHideImages(root = document) {
+  const imgs = root.querySelectorAll("img.auto-hide-img");
+  imgs.forEach(img => {
+    const hide = () => img.classList.add("is-hidden");
 
-  const update = () => {
-    const scrollTop = window.scrollY || window.pageYOffset;
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const percent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-    bar.style.width = percent + "%";
+    // Empty src => hide immediately
+    const src = (img.getAttribute("src") || "").trim();
+    if (!src) hide();
+
+    img.addEventListener("error", hide, { once: true });
+
+    // If loads but natural size is 0 (rare), hide
+    img.addEventListener("load", () => {
+      if (!img.naturalWidth || !img.naturalHeight) hide();
+    }, { once: true });
+  });
+}
+
+function initRemoteThumbs(root = document) {
+  const thumbs = root.querySelectorAll("img.remote-thumb");
+  thumbs.forEach(img => {
+    const tile = img.closest("[data-thumb]");
+    if (!tile) return;
+    const url = tile.getAttribute("data-thumb");
+    if (url) img.src = url;
+  });
+}
+
+function sparkAtEvent(e) {
+  const x = e.clientX ?? (e.touches && e.touches[0]?.clientX);
+  const y = e.clientY ?? (e.touches && e.touches[0]?.clientY);
+  if (typeof x !== "number" || typeof y !== "number") return;
+
+  const s = document.createElement("span");
+  s.className = "spark";
+  s.style.left = `${x}px`;
+  s.style.top = `${y}px`;
+  document.body.appendChild(s);
+  s.addEventListener("animationend", () => s.remove(), { once: true });
+}
+
+function renderProjectDescription() {
+  const fallback = {
+    title: "Project Title",
+    thumb: "",
+    problem: "Problem statement not found. Open from Projects page.",
+    start: "",
+    end: "",
+    skills: ["HTML","CSS","JavaScript"],
+    flow1: "",
+    flow2: "",
+    explain: "—",
+    outputs: ["","","",""],
+    demo: "",
+    live: "",
+    repo: ""
   };
 
-  update();
-  window.addEventListener("scroll", update, { passive: true });
-})();
+  let data = fallback;
+  try{
+    const raw = sessionStorage.getItem("selectedProject");
+    if (raw) data = JSON.parse(raw);
+  }catch(_){ /* ignore */ }
 
-// Hamburger menu
-(function () {
-  const hamburger = document.querySelector(".hamburger");
-  const navLinks = document.querySelector(".nav-links");
-  if (!hamburger || !navLinks) return;
+  setText("pd-title", data.title || "Project");
+  setText("pd-dates", `${data.start || "—"} — ${data.end || "—"}`);
+  setText("pd-problem", data.problem || "—");
+  setText("pd-explain", data.explain || "—");
 
-  hamburger.addEventListener("click", () => {
-    hamburger.classList.toggle("active");
-    navLinks.classList.toggle("open");
-  });
+  setSrc("pd-thumb", data.thumb);
+  setSrc("pd-flow1", data.flow1);
+  setSrc("pd-flow2", data.flow2);
 
-  navLinks.addEventListener("click", (e) => {
-    if (e.target.tagName === "A") {
-      hamburger.classList.remove("active");
-      navLinks.classList.remove("open");
+  const outs = Array.isArray(data.outputs) ? data.outputs : [];
+  setSrc("pd-out1", outs[0]);
+  setSrc("pd-out2", outs[1]);
+  setSrc("pd-out3", outs[2]);
+  setSrc("pd-out4", outs[3]);
+
+  // Skills floating
+  const skillsWrap = document.getElementById("pd-skills");
+  if (skillsWrap) {
+    skillsWrap.innerHTML = "";
+    (data.skills || []).forEach((sk) => {
+      const d = document.createElement("div");
+      d.className = "skill-float";
+      d.title = sk;
+      d.textContent = shortSkill(sk);
+      skillsWrap.appendChild(d);
+    });
+  }
+
+  // Links
+  const live = document.getElementById("pd-live");
+  const repo = document.getElementById("pd-repo");
+  setLinkOrHide(live, data.live);
+  setLinkOrHide(repo, data.repo);
+
+  // Demo video: allow google drive share link (convert to preview) or embed link
+  const wrap = document.getElementById("pd-demo-wrap");
+  if (wrap) {
+    const url = (data.demo || "").trim();
+    if (!url) {
+      wrap.innerHTML = `<p class="muted">No demo video provided.</p>`;
+    } else {
+      const embed = googleDrivePreview(url) || url;
+      wrap.innerHTML = `<iframe src="${embed}" allow="autoplay; encrypted-media" allowfullscreen title="Demo video"></iframe>`;
     }
-  });
-})();
-
-// Click spark
-(function () {
-  const container = document.getElementById("click-spark-container");
-  if (!container) return;
-
-  const spawnSpark = (x, y) => {
-    const spark = document.createElement("div");
-    spark.className = "click-spark";
-    spark.style.left = x + "px";
-    spark.style.top = y + "px";
-    container.appendChild(spark);
-    spark.addEventListener("animationend", () => spark.remove());
-  };
-
-  window.addEventListener("click", (e) => {
-    spawnSpark(e.clientX, e.clientY);
-  });
-})();
-
-// Simple "pop" on clickable elements
-(function () {
-  const addTapAnimation = (selector) => {
-    document.querySelectorAll(selector).forEach((el) => {
-      el.addEventListener("mousedown", () => {
-        el.style.transform = "scale(0.98)";
-      });
-      el.addEventListener("mouseup", () => {
-        el.style.transform = "";
-      });
-      el.addEventListener("mouseleave", () => {
-        el.style.transform = "";
-      });
-      el.addEventListener("touchstart", () => {
-        el.style.transform = "scale(0.98)";
-      });
-      el.addEventListener("touchend", () => {
-        el.style.transform = "";
-      });
-    });
-  };
-
-  addTapAnimation("a, button, .project-tile, .hobby-tile, .achievement-card");
-})();
-
-// Project routing: tile -> project_description.html?project=project1
-(function () {
-  const tiles = document.querySelectorAll(".project-tile");
-  if (!tiles.length) return;
-
-  tiles.forEach((tile) => {
-    tile.addEventListener("click", () => {
-      const id = tile.getAttribute("data-project-id");
-      if (!id) return;
-      const url = new URL(window.location.origin + "/project_description.html");
-      url.searchParams.set("project", id);
-      window.location.href = url.pathname + url.search;
-    });
-  });
-})();
-
-// Dummy project data for description page
-const PROJECT_DATA = {
-  project1: {
-    title: "Dummy Project One",
-    problem: "Short problem statement describing what issue this project solves.",
-    start: "Jan 2024",
-    end: "Mar 2024",
-    skills: ["Python", "Pandas", "Machine Learning"],
-    description:
-      "This is a dummy project description. Replace it with your own project details to explain what it does and how it is implemented.",
-    live: "https://example.com/project1",
-    github: "https://github.com/your-username/project1"
-  },
-  project2: {
-    title: "Dummy Project Two",
-    problem: "Another dummy problem statement for demonstration purposes.",
-    start: "Jun 2024",
-    end: "Aug 2024",
-    skills: [".NET", "React", "PostgreSQL"],
-    description:
-      "Dummy project two description. You can update this block with your own project summary and technical highlights.",
-    live: "https://example.com/project2",
-    github: "https://github.com/your-username/project2"
-  },
-  project3: {
-    title: "Dummy Project Three",
-    problem: "Optional extra dummy project entry that you can reuse.",
-    start: "Sep 2024",
-    end: "Nov 2024",
-    skills: ["Docker", "CI/CD"],
-    description:
-      "Dummy project three description. Feel free to rename or remove if not required.",
-    live: "https://example.com/project3",
-    github: "https://github.com/your-username/project3"
-  }
-};
-
-// Populate project_description.html from query params
-(function () {
-  if (document.body.getAttribute("data-page") !== "project-detail") return;
-
-  const params = new URLSearchParams(window.location.search);
-  const id = params.get("project");
-
-  const data = PROJECT_DATA[id] || null;
-  const titleEl = document.getElementById("project-title");
-  const dateSpan = document.querySelector("#project-dates span");
-  const problemSpan = document.querySelector("#project-problem span");
-  const descEl = document.getElementById("project-description-text");
-  const skillsContainer = document.getElementById("project-skills-icons");
-  const liveLink = document.getElementById("project-live-link");
-  const githubLink = document.getElementById("project-github-link");
-
-  if (!data) {
-    if (titleEl) titleEl.textContent = "Project not found";
-    if (descEl)
-      descEl.textContent = "The requested project does not exist. Please select a project from the Projects page.";
-    if (liveLink) liveLink.style.display = "none";
-    if (githubLink) githubLink.style.display = "none";
-    return;
   }
 
-  if (titleEl) titleEl.textContent = data.title;
-  if (dateSpan) dateSpan.textContent = `${data.start} – ${data.end}`;
-  if (problemSpan) problemSpan.textContent = data.problem;
-  if (descEl) descEl.textContent = data.description;
+  // Re-check missing images
+  initAutoHideImages(document);
+}
 
-  if (skillsContainer) {
-    skillsContainer.innerHTML = "";
-    (data.skills || []).forEach((skill) => {
-      const span = document.createElement("span");
-      span.className = "skill-badge";
-      span.textContent = skill;
-      skillsContainer.appendChild(span);
-    });
-  }
+function setText(id, text){
+  const el = document.getElementById(id);
+  if (el) el.textContent = text ?? "";
+}
 
-  if (liveLink) {
-    liveLink.href = data.live || "#";
-    if (!data.live) liveLink.style.display = "none";
-  }
+function setSrc(id, src){
+  const el = document.getElementById(id);
+  if (!el) return;
+  const v = (src || "").trim();
+  el.setAttribute("src", v);
+  if (!v) el.classList.add("is-hidden");
+}
 
-  if (githubLink) {
-    githubLink.href = data.github || "#";
-    if (!data.github) githubLink.style.display = "none";
+function setLinkOrHide(a, href){
+  if (!a) return;
+  const v = (href || "").trim();
+  if (!v) {
+    a.style.display = "none";
+  } else {
+    a.style.display = "";
+    a.href = v;
   }
-})();
+}
+
+function shortSkill(s){
+  const t = (s || "").trim();
+  if (!t) return "SK";
+  const map = { "JavaScript":"JS", "TypeScript":"TS", "Python":"Py", "OpenCV":"CV", "React":"Rx", "Docker":"Dk" };
+  if (map[t]) return map[t];
+  if (t.length <= 4) return t;
+  return t.slice(0,2).toUpperCase();
+}
+
+function googleDrivePreview(url){
+  // supports: https://drive.google.com/file/d/<ID>/view?...
+  const m = url.match(/drive\.google\.com\/file\/d\/([^/]+)\//);
+  if (!m) return null;
+  return `https://drive.google.com/file/d/${m[1]}/preview`;
+}

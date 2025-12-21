@@ -1,90 +1,76 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Hobbies | Harsh Bari</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hobbies | Portfolio</title>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <script defer src="assets/js/script.js"></script>
 </head>
-<body data-page="hobbies">
-  <div id="loader">
-    <div class="loader-border loader-border-top"></div>
-    <div class="loader-border loader-border-right"></div>
-    <div class="loader-border loader-border-bottom"></div>
-    <div class="loader-border loader-border-left"></div>
+<body>
+  <div id="page-loader" aria-hidden="true">
+    <div class="loader-frame"><div class="loader-fill"></div></div>
+    <div class="loader-text">Loading...</div>
   </div>
 
-  <div id="scroll-progress"></div>
-  <div id="click-spark-container"></div>
-
   <header class="site-header">
-    <nav class="navbar">
-      <div class="nav-logo">Harsh Bari</div>
-      <button class="hamburger" aria-label="Toggle navigation">
-        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    <nav class="navbar container" aria-label="Primary">
+      <a class="brand" href="index.html">your-portfolio</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
       </button>
-      <ul class="nav-links">
+      <ul id="nav-menu" class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="career_timeline.html">Career Timeline</a></li>
         <li><a href="projects.html">Projects</a></li>
         <li><a href="achievements.html">Achievements</a></li>
-        <li><a href="hobbies.html" class="active">Hobbies</a></li>
+        <li><a class="active" href="hobbies.html">Hobbies</a></li>
       </ul>
     </nav>
+    <div id="scroll-progress" aria-hidden="true"></div>
   </header>
 
-  <main class="page-container">
-    <h1 class="page-title">Hobbies</h1>
-
-    <!-- Example dynamic section: Blogs -->
-    <section class="hobby-section">
-      <header class="hobby-header">
-        <h2>Blogs</h2>
-      </header>
-
-      <div class="hobby-grid">
-        <!-- Tile 1 -->
-        <article class="hobby-tile">
-          <div class="optional-image hobby-thumb">
-            <!-- Thumbnail fetched from URL -->
-            <img src="https://picsum.photos/400/250?random=1" alt="Blog thumbnail" />
-          </div>
-          <h3 class="hobby-title">
-            <a href="https://your-blog-url-1.com" target="_blank" rel="noopener">
-              Blog Post One
-            </a>
-          </h3>
-        </article>
-
-        <!-- Tile 2 -->
-        <article class="hobby-tile">
-          <div class="optional-image hobby-thumb">
-            <img src="https://picsum.photos/400/250?random=2" alt="Blog thumbnail" />
-          </div>
-          <h3 class="hobby-title">
-            <a href="https://your-blog-url-2.com" target="_blank" rel="noopener">
-              Blog Post Two
-            </a>
-          </h3>
-        </article>
-
-        <!-- Tile 3 -->
-        <article class="hobby-tile">
-          <div class="optional-image hobby-thumb">
-            <img src="https://picsum.photos/400/250?random=3" alt="Blog thumbnail" />
-          </div>
-          <h3 class="hobby-title">
-            <a href="https://your-blog-url-3.com" target="_blank" rel="noopener">
-              Blog Post Three
-            </a>
-          </h3>
-        </article>
+  <main class="container page">
+    <section class="card">
+      <div class="section-head">
+        <h1>Hobbies</h1>
+        <p class="muted">Add sections like Blogs, Robotics, Photography, etc. Tiles open external links.</p>
       </div>
-    </section>
 
-    <!-- You can copy the whole section block above to create more dynamic hobby sections -->
+      <!-- Example dynamic section: Blogs -->
+      <section class="subcard">
+        <div class="row">
+          <h2>Blogs</h2>
+          <button class="btn ghost small" type="button" id="add-blog">Add dummy blog</button>
+        </div>
+
+        <div class="tiles-grid" id="blogs-grid">
+          <a class="tile link-tile" href="https://example.com/blog1" target="_blank" rel="noreferrer"
+             data-thumb="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=900&q=60">
+            <div class="tile-top">
+              <div class="tile-icon" aria-hidden="true">⬡</div>
+              <img class="tile-thumb remote-thumb auto-hide-img" alt="Blog thumbnail"/>
+            </div>
+            <div class="tile-title"><strong>Blog Title (Dummy)</strong></div>
+            <div class="tile-sub muted">example.com/blog1</div>
+          </a>
+
+          <a class="tile link-tile" href="https://example.com/blog2" target="_blank" rel="noreferrer"
+             data-thumb="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=900&q=60">
+            <div class="tile-top">
+              <div class="tile-icon" aria-hidden="true">⬡</div>
+              <img class="tile-thumb remote-thumb auto-hide-img" alt="Blog thumbnail"/>
+            </div>
+            <div class="tile-title"><strong>Another Blog (Dummy)</strong></div>
+            <div class="tile-sub muted">example.com/blog2</div>
+          </a>
+        </div>
+      </section>
+    </section>
   </main>
 
-  <script src="assets/js/script.js"></script>
+  <footer class="footer container">
+    <small>© <span id="year"></span> Harsh Bari.</small>
+  </footer>
 </body>
 </html>

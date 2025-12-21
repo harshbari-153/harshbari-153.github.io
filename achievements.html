@@ -1,95 +1,122 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Achievements | Harsh Bari</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Achievements | Portfolio</title>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <script defer src="assets/js/script.js"></script>
 </head>
-<body data-page="achievements">
-  <div id="loader">
-    <div class="loader-border loader-border-top"></div>
-    <div class="loader-border loader-border-right"></div>
-    <div class="loader-border loader-border-bottom"></div>
-    <div class="loader-border loader-border-left"></div>
+<body>
+  <div id="page-loader" aria-hidden="true">
+    <div class="loader-frame"><div class="loader-fill"></div></div>
+    <div class="loader-text">Loading...</div>
   </div>
 
-  <div id="scroll-progress"></div>
-  <div id="click-spark-container"></div>
-
   <header class="site-header">
-    <nav class="navbar">
-      <div class="nav-logo">Harsh Bari</div>
-      <button class="hamburger" aria-label="Toggle navigation">
-        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    <nav class="navbar container" aria-label="Primary">
+      <a class="brand" href="index.html">your-portfolio</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
       </button>
-      <ul class="nav-links">
+      <ul id="nav-menu" class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="career_timeline.html">Career Timeline</a></li>
         <li><a href="projects.html">Projects</a></li>
-        <li><a href="achievements.html" class="active">Achievements</a></li>
+        <li><a class="active" href="achievements.html">Achievements</a></li>
         <li><a href="hobbies.html">Hobbies</a></li>
       </ul>
     </nav>
+    <div id="scroll-progress" aria-hidden="true"></div>
   </header>
 
-  <main class="page-container">
-    <h1 class="page-title">Achievements</h1>
+  <main class="container page">
+    <section class="card">
+      <div class="section-head">
+        <h1>Achievements</h1>
+        <p class="muted">Month + Year are required; date can be optional.</p>
+      </div>
 
-    <!-- Section 1: Research Publication -->
-    <section class="achievement-section">
-      <h2>Research Publications</h2>
-      <article class="achievement-card">
-        <p class="achievement-date">Jan 2023</p>
-        <h3 class="achievement-title">Dummy Paper Title</h3>
-        <p>
-          <a href="https://example.com/full-paper-link" target="_blank" rel="noopener">
-            https://example.com/full-paper-link
-          </a>
-        </p>
-      </article>
-    </section>
-
-    <!-- Section 2: Exams -->
-    <section class="achievement-section">
-      <h2>Exams</h2>
-
-      <article class="achievement-card exam-card">
-        <div class="optional-image exam-image">
-          <!-- <img src="assets/images/exam1.jpg" alt="Exam certificate" /> -->
-        </div>
-        <div class="exam-content">
-          <p class="achievement-date">Aug 2022</p>
-          <h3>GATE</h3>
-          <p><strong>Subject:</strong> Computer Science</p>
-          <div class="exam-labels">
-            <span class="exam-label">Score: 70/100</span>
-            <span class="exam-label">AIR: 500</span>
+      <div class="stack">
+        <section class="subcard">
+          <h2>Research Publication</h2>
+          <div class="list">
+            <div class="list-item">
+              <div class="li-left">
+                <div class="li-title">Paper Title (Dummy)</div>
+                <div class="li-meta">Aug 2025</div>
+              </div>
+              <a class="li-link" href="https://example.com/paper" target="_blank" rel="noreferrer">
+                https://example.com/paper
+              </a>
+            </div>
           </div>
-        </div>
-      </article>
-    </section>
+        </section>
 
-    <!-- Section 3: Awards -->
-    <section class="achievement-section">
-      <h2>Awards</h2>
+        <section class="subcard">
+          <h2>Exams</h2>
 
-      <article class="achievement-card award-card">
-        <div class="optional-image award-image">
-          <!-- <img src="assets/images/award1.jpg" alt="Award photo" /> -->
-        </div>
-        <div class="award-content">
-          <p class="achievement-date">Dec 2021</p>
-          <h3>Best Project Award</h3>
-          <p><strong>Venue:</strong> College Techfest</p>
-          <p class="award-description">
-            Short description within 200 characters about the award and what it recognized.
-          </p>
-        </div>
-      </article>
+          <div class="media-list">
+            <div class="media-left">
+              <img class="auto-hide-img media-thumb" src="assets/images/exam1.jpg" alt="Exam photo"/>
+            </div>
+            <div class="media-right">
+              <div class="row">
+                <div class="li-title">GATE (Dummy)</div>
+                <div class="li-meta">Feb 2025</div>
+              </div>
+              <div class="muted">Subject: Data Science</div>
+              <div class="labels">
+                <span class="label">Score: 650</span>
+                <span class="label">Percentile: 92%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="media-list">
+            <div class="media-left">
+              <img class="auto-hide-img media-thumb" src="" alt="Exam photo"/>
+            </div>
+            <div class="media-right">
+              <div class="row">
+                <div class="li-title">NPTEL (Dummy)</div>
+                <div class="li-meta">Nov 2024</div>
+              </div>
+              <div class="muted">Subject: Machine Learning</div>
+              <div class="labels">
+                <span class="label">Elite</span>
+                <span class="label">Top 5%</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="subcard">
+          <h2>Awards</h2>
+
+          <div class="media-list">
+            <div class="media-left">
+              <img class="auto-hide-img media-thumb" src="assets/images/award1.jpg" alt="Award photo"/>
+            </div>
+            <div class="media-right">
+              <div class="row">
+                <div class="li-title">Best Project (Dummy)</div>
+                <div class="li-meta">Sep 2025</div>
+              </div>
+              <div class="muted">Venue: College / Hackathon</div>
+              <p class="muted">
+                Short description (max 200 characters). Replace this with your award details and impact.
+              </p>
+            </div>
+          </div>
+        </section>
+
+      </div>
     </section>
   </main>
 
-  <script src="assets/js/script.js"></script>
+  <footer class="footer container">
+    <small>© <span id="year"></span> Harsh Bari.</small>
+  </footer>
 </body>
 </html>

@@ -1,60 +1,125 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Projects | Harsh Bari</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects | Portfolio</title>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <script defer src="assets/js/script.js"></script>
 </head>
-<body data-page="projects">
-  <div id="loader">
-    <div class="loader-border loader-border-top"></div>
-    <div class="loader-border loader-border-right"></div>
-    <div class="loader-border loader-border-bottom"></div>
-    <div class="loader-border loader-border-left"></div>
+<body>
+  <div id="page-loader" aria-hidden="true">
+    <div class="loader-frame"><div class="loader-fill"></div></div>
+    <div class="loader-text">Loading...</div>
   </div>
 
-  <div id="scroll-progress"></div>
-  <div id="click-spark-container"></div>
-
   <header class="site-header">
-    <nav class="navbar">
-      <div class="nav-logo">Harsh Bari</div>
-      <button class="hamburger" aria-label="Toggle navigation">
-        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    <nav class="navbar container" aria-label="Primary">
+      <a class="brand" href="index.html">your-portfolio</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
       </button>
-      <ul class="nav-links">
+      <ul id="nav-menu" class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="career_timeline.html">Career Timeline</a></li>
-        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a class="active" href="projects.html">Projects</a></li>
         <li><a href="achievements.html">Achievements</a></li>
         <li><a href="hobbies.html">Hobbies</a></li>
       </ul>
     </nav>
+    <div id="scroll-progress" aria-hidden="true"></div>
   </header>
 
-  <main class="page-container">
-    <h1 class="page-title">Projects</h1>
+  <main class="container page">
+    <section class="card">
+      <div class="section-head">
+        <h1>Projects</h1>
+        <p class="muted">Click a tile to open details in Project Description page.</p>
+      </div>
 
-    <section class="projects-grid">
-      <!-- Tile 1 -->
-      <article class="project-tile" data-project-id="project1">
-        <div class="project-icon">📁</div>
-        <h2 class="project-title">Dummy Project One</h2>
-      </article>
-      <!-- Tile 2 -->
-      <article class="project-tile" data-project-id="project2">
-        <div class="project-icon">📁</div>
-        <h2 class="project-title">Dummy Project Two</h2>
-      </article>
-      <!-- Tile 3 (you can add more or leave as placeholder) -->
-      <article class="project-tile" data-project-id="project3">
-        <div class="project-icon">📁</div>
-        <h2 class="project-title">Dummy Project Three</h2>
-      </article>
+      <div class="tiles-grid" id="projects-grid">
+        <!-- 3 tiles in a row on desktop, responsive on smaller screens -->
+        <button class="tile project-tile" type="button"
+          data-project='{
+            "id":"p1",
+            "title":"Smart Attendance (Dummy)",
+            "thumb":"assets/images/project1-thumb.jpg",
+            "problem":"Automate attendance using face recognition with basic reporting.",
+            "start":"Jan 2025",
+            "end":"Mar 2025",
+            "skills":["Python","OpenCV","SQL","React"],
+            "flow1":"assets/images/flow1.png",
+            "flow2":"assets/images/flow2.png",
+            "explain":"Short explanation here. Replace with your actual project details.",
+            "outputs":["assets/images/out1.png","assets/images/out2.png","assets/images/out3.png","assets/images/out4.png"],
+            "demo":"", 
+            "live":"https://example.com",
+            "repo":"https://github.com/example/repo"
+          }'>
+          <div class="tile-top">
+            <div class="tile-icon" aria-hidden="true">⬡</div>
+            <img class="tile-thumb auto-hide-img" src="assets/images/project1-thumb.jpg" alt="Project thumbnail"/>
+          </div>
+          <div class="tile-title"><strong>Smart Attendance (Dummy)</strong></div>
+          <div class="tile-sub muted">Click to view details</div>
+        </button>
+
+        <button class="tile project-tile" type="button"
+          data-project='{
+            "id":"p2",
+            "title":"Industrial Defect Detection (Dummy)",
+            "thumb":"",
+            "problem":"Detect surface defects with a lightweight ML pipeline for factory QA.",
+            "start":"Apr 2025",
+            "end":"Jun 2025",
+            "skills":["Python","ML","Docker"],
+            "flow1":"",
+            "flow2":"",
+            "explain":"Short explanation here. Replace with your actual project details.",
+            "outputs":["","","",""],
+            "demo":"https://drive.google.com/file/d/XXXXXXXX/view?usp=sharing",
+            "live":"",
+            "repo":"https://github.com/example/defect-detection"
+          }'>
+          <div class="tile-top">
+            <div class="tile-icon" aria-hidden="true">⬡</div>
+            <img class="tile-thumb auto-hide-img" src="" alt="Project thumbnail"/>
+          </div>
+          <div class="tile-title"><strong>Industrial Defect Detection (Dummy)</strong></div>
+          <div class="tile-sub muted">Click to view details</div>
+        </button>
+
+        <button class="tile project-tile" type="button"
+          data-project='{
+            "id":"p3",
+            "title":"Portfolio Website (Dummy)",
+            "thumb":"",
+            "problem":"Create a fast, responsive static portfolio hosted on GitHub Pages.",
+            "start":"Jul 2025",
+            "end":"Jul 2025",
+            "skills":["HTML","CSS","JavaScript"],
+            "flow1":"",
+            "flow2":"",
+            "explain":"Short explanation here. Replace with your actual project details.",
+            "outputs":["","","",""],
+            "demo":"",
+            "live":"https://example.github.io",
+            "repo":"https://github.com/example/portfolio"
+          }'>
+          <div class="tile-top">
+            <div class="tile-icon" aria-hidden="true">⬡</div>
+            <img class="tile-thumb auto-hide-img" src="" alt="Project thumbnail"/>
+          </div>
+          <div class="tile-title"><strong>Portfolio Website (Dummy)</strong></div>
+          <div class="tile-sub muted">Click to view details</div>
+        </button>
+
+      </div>
     </section>
   </main>
 
-  <script src="assets/js/script.js"></script>
+  <footer class="footer container">
+    <small>© <span id="year"></span> Harsh Bari.</small>
+  </footer>
 </body>
 </html>

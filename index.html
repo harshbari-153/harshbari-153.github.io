@@ -1,97 +1,101 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Harsh Bari | Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <script defer src="assets/js/script.js"></script>
 </head>
-<body data-page="home">
-  <!-- Loading Overlay -->
-  <div id="loader">
-    <div class="loader-border loader-border-top"></div>
-    <div class="loader-border loader-border-right"></div>
-    <div class="loader-border loader-border-bottom"></div>
-    <div class="loader-border loader-border-left"></div>
+<body>
+  <!-- Page loader -->
+  <div id="page-loader" aria-hidden="true">
+    <div class="loader-frame">
+      <div class="loader-fill"></div>
+    </div>
+    <div class="loader-text">Loading...</div>
   </div>
-
-  <!-- Scroll Progress Bar -->
-  <div id="scroll-progress"></div>
-
-  <!-- Click Spark Container -->
-  <div id="click-spark-container"></div>
 
   <!-- Navbar -->
   <header class="site-header">
-    <nav class="navbar">
-      <div class="nav-logo">Harsh Bari</div>
-      <button class="hamburger" aria-label="Toggle navigation">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
+    <nav class="navbar container" aria-label="Primary">
+      <a class="brand" href="index.html">your-portfolio</a>
+
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
       </button>
-      <ul class="nav-links">
-        <li><a href="index.html" class="active">Home</a></li>
+
+      <ul id="nav-menu" class="nav-links">
+        <li><a class="active" href="index.html">Home</a></li>
         <li><a href="career_timeline.html">Career Timeline</a></li>
         <li><a href="projects.html">Projects</a></li>
         <li><a href="achievements.html">Achievements</a></li>
         <li><a href="hobbies.html">Hobbies</a></li>
       </ul>
     </nav>
+
+    <!-- Scroll progress bar (below navbar) -->
+    <div id="scroll-progress" aria-hidden="true"></div>
   </header>
 
-  <main class="page-container">
-    <section class="hero">
-      <!-- Photo block; collapsed if no image -->
-      <div class="hero-photo-container optional-image">
-        <!-- Put your image here or leave empty to collapse -->
-        <!-- <img src="assets/images/profile.jpg" alt="Harsh Bari" /> -->
-      </div>
-
-      <div class="hero-content">
-        <h1 class="hero-title">Short bio goes here</h1>
-        <p class="hero-subtitle">
-          <!-- Write your own short bio here -->
-        </p>
-        <a class="btn-primary" href="assets/harsh_bari_ds.pdf" target="_blank" rel="noopener">
-          Download Resume
-        </a>
-
-        <div class="info-grid">
-          <div class="info-item">
-            <h3>Date of Birth</h3>
-            <p><!-- Your DOB --></p>
-          </div>
-          <div class="info-item">
-            <h3>Location</h3>
-            <p>Vapi, Gujarat, India</p>
-          </div>
+  <main class="container page">
+    <section class="hero card">
+      <div class="hero-grid">
+        <div class="hero-photo">
+          <!-- If you don't add image, this will auto-collapse -->
+          <img class="auto-hide-img" src="assets/images/profile.jpg" alt="Profile photo"/>
         </div>
 
-        <section class="skills-section">
-          <h2>Skills</h2>
-          <div class="skills-icons">
-            <!-- Example floating skill badges; edit as you like -->
-            <span class="skill-badge">Python</span>
-            <span class="skill-badge">.NET</span>
-            <span class="skill-badge">React</span>
-            <span class="skill-badge">SQL</span>
-            <span class="skill-badge">Machine Learning</span>
-          </div>
-        </section>
+        <div class="hero-content">
+          <h1>Harsh Bari</h1>
+          <p class="muted">
+            Short bio goes here. Replace this text with your introduction, interests, and what you are looking for.
+          </p>
 
-        <section class="connections">
-          <h2>Connect</h2>
-          <div class="connection-links">
-            <a href="https://www.linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
-            <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
-            <a href="mailto:your_email@example.com">Email</a>
+          <div class="hero-actions">
+            <a class="btn primary" href="assets/harsh_bari_ds.pdf" download>Download Resume</a>
+            <a class="btn ghost" href="projects.html">View Projects</a>
           </div>
-        </section>
+
+          <div class="meta">
+            <div class="meta-item">
+              <div class="meta-label">Date of birth</div>
+              <div class="meta-value">DD MMM YYYY</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">Location</div>
+              <div class="meta-value">Vapi, Gujarat, India</div>
+            </div>
+          </div>
+
+          <div class="connections">
+            <a class="chip" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="chip" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="chip" href="mailto:youremail@example.com">Email</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="section-head">
+        <h2>Skills</h2>
+        <p class="muted">Replace icons/labels as needed (floating neon accent).</p>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-float" title="Python" aria-label="Python">Py</div>
+        <div class="skill-float" title=".NET" aria-label=".NET">.NET</div>
+        <div class="skill-float" title="React" aria-label="React">Rx</div>
+        <div class="skill-float" title="SQL" aria-label="SQL">SQL</div>
+        <div class="skill-float" title="Docker" aria-label="Docker">Dk</div>
+        <div class="skill-float" title="ML" aria-label="ML">ML</div>
       </div>
     </section>
   </main>
 
-  <script src="assets/js/script.js"></script>
+  <footer class="footer container">
+    <small>© <span id="year"></span> Harsh Bari. Built for GitHub Pages.</small>
+  </footer>
 </body>
 </html>

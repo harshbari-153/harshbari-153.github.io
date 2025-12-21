@@ -1,78 +1,96 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Career Timeline | Harsh Bari</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Career Timeline | Portfolio</title>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <script defer src="assets/js/script.js"></script>
 </head>
-<body data-page="career">
-  <div id="loader">
-    <div class="loader-border loader-border-top"></div>
-    <div class="loader-border loader-border-right"></div>
-    <div class="loader-border loader-border-bottom"></div>
-    <div class="loader-border loader-border-left"></div>
+<body>
+  <div id="page-loader" aria-hidden="true">
+    <div class="loader-frame"><div class="loader-fill"></div></div>
+    <div class="loader-text">Loading...</div>
   </div>
 
-  <div id="scroll-progress"></div>
-  <div id="click-spark-container"></div>
-
   <header class="site-header">
-    <nav class="navbar">
-      <div class="nav-logo">Harsh Bari</div>
-      <button class="hamburger" aria-label="Toggle navigation">
-        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    <nav class="navbar container" aria-label="Primary">
+      <a class="brand" href="index.html">your-portfolio</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
       </button>
-      <ul class="nav-links">
+      <ul id="nav-menu" class="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="career_timeline.html" class="active">Career Timeline</a></li>
+        <li><a class="active" href="career_timeline.html">Career Timeline</a></li>
         <li><a href="projects.html">Projects</a></li>
         <li><a href="achievements.html">Achievements</a></li>
         <li><a href="hobbies.html">Hobbies</a></li>
       </ul>
     </nav>
+    <div id="scroll-progress" aria-hidden="true"></div>
   </header>
 
-  <main class="page-container">
-    <h1 class="page-title">Career Timeline</h1>
-    <section class="timeline">
-      <div class="timeline-line"></div>
+  <main class="container page">
+    <section class="card">
+      <div class="section-head">
+        <h1>Career Timeline</h1>
+        <p class="muted">Replace the dummy entries with your own schooling/college/jobs.</p>
+      </div>
 
-      <!-- SSC -->
-      <article class="timeline-item left">
-        <div class="timeline-content">
-          <h2>SSC</h2>
-          <p><strong>Start:</strong> 2015 | <strong>End:</strong> 2016</p>
-          <p><strong>Location:</strong> Your School</p>
-          <p><strong>Subject:</strong> Science</p>
-          <p><strong>Score:</strong> 90%</p>
-        </div>
-      </article>
+      <div class="timeline">
+        <div class="timeline-line" aria-hidden="true"></div>
 
-      <!-- HSC -->
-      <article class="timeline-item right">
-        <div class="timeline-content">
-          <h2>HSC</h2>
-          <p><strong>Start:</strong> 2017 | <strong>End:</strong> 2018</p>
-          <p><strong>Location:</strong> Your College</p>
-          <p><strong>Subject:</strong> PCM</p>
-          <p><strong>Score:</strong> 88%</p>
-        </div>
-      </article>
+        <article class="timeline-item left">
+          <div class="timeline-card">
+            <h3>SSC</h3>
+            <div class="timeline-meta">
+              <span>Start: Jun 2017</span>
+              <span>End: Mar 2018</span>
+              <span>Location: City, State</span>
+            </div>
+            <div class="timeline-body">
+              <p><strong>Subject:</strong> General</p>
+              <p><strong>Score:</strong> 85%</p>
+            </div>
+          </div>
+        </article>
 
-      <!-- BTech -->
-      <article class="timeline-item left">
-        <div class="timeline-content">
-          <h2>BTech</h2>
-          <p><strong>Start:</strong> 2018 | <strong>End:</strong> 2022</p>
-          <p><strong>Location:</strong> Your University</p>
-          <p><strong>Subject:</strong> Computer Science</p>
-          <p><strong>Score:</strong> 8.5 CGPA</p>
-        </div>
-      </article>
+        <article class="timeline-item right">
+          <div class="timeline-card">
+            <h3>HSC</h3>
+            <div class="timeline-meta">
+              <span>Start: Jun 2019</span>
+              <span>End: Mar 2020</span>
+              <span>Location: City, State</span>
+            </div>
+            <div class="timeline-body">
+              <p><strong>Subject:</strong> Science</p>
+              <p><strong>Score:</strong> 78%</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="timeline-item left">
+          <div class="timeline-card">
+            <h3>BTech</h3>
+            <div class="timeline-meta">
+              <span>Start: Aug 2021</span>
+              <span>End: May 2025</span>
+              <span>Location: City, State</span>
+            </div>
+            <div class="timeline-body">
+              <p><strong>Subject:</strong> Computer/IT</p>
+              <p><strong>Score:</strong> CGPA 8.2</p>
+            </div>
+          </div>
+        </article>
+
+      </div>
     </section>
   </main>
 
-  <script src="assets/js/script.js"></script>
+  <footer class="footer container">
+    <small>© <span id="year"></span> Harsh Bari.</small>
+  </footer>
 </body>
 </html>
