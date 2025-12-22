@@ -1,57 +1,31 @@
-<!doctype html>
-<html lang="en" data-page="projects">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Projects | Portfolio</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <title>Projects</title>
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 <body>
-  <div id="loader" class="loader" aria-label="Loading">
-    <div class="loader__frame" aria-hidden="true"></div>
-    <div class="loader__text">Loading…</div>
+
+<nav class="navbar">…same navbar…</nav>
+<div id="scroll-progress"></div>
+
+<section class="container grid">
+  <div class="card project" onclick="openProject(1)">
+    <div class="icon">📁</div>
+    <h3>Project One</h3>
   </div>
-  <div id="spark-layer" aria-hidden="true"></div>
-  <div id="scroll-progress" class="scroll-progress" aria-hidden="true"></div>
 
-  <header class="site-header">
-    <nav class="nav container" aria-label="Primary navigation">
-      <a class="brand" href="index.html">Harsh Bari</a>
+  <div class="card project" onclick="openProject(2)">
+    <div class="icon">📁</div>
+    <h3>Project Two</h3>
+  </div>
 
-      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
-        <span class="nav__hamburger"></span>
-      </button>
+  <div class="card project" onclick="openProject(3)">
+    <div class="icon">📁</div>
+    <h3>Project Three</h3>
+  </div>
+</section>
 
-      <div class="nav__menu" id="navMenu">
-        <a class="nav__link" href="index.html">Home</a>
-        <a class="nav__link" href="career_timeline.html">Career Timeline</a>
-        <a class="nav__link active" href="projects.html">Projects</a>
-        <a class="nav__link" href="achievements.html">Achievements</a>
-        <a class="nav__link" href="hobbies.html">Hobbies</a>
-      </div>
-    </nav>
-  </header>
-
-  <main class="container page">
-    <section class="card">
-      <div class="section-head">
-        <h1 class="h1">Projects</h1>
-        <p class="muted">Click a tile to open full details on the Project Description page.</p>
-      </div>
-
-      <div class="grid grid--3" id="projectsGrid" aria-label="Projects grid">
-        <!-- Tiles injected by JS from PROJECTS data -->
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer__inner">
-      <span class="muted">© <span id="year"></span> Harsh Bari</span>
-    </div>
-  </footer>
-
-  <script src="assets/js/script.js"></script>
+<script src="assets/js/script.js"></script>
 </body>
 </html>
