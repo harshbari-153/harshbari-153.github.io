@@ -1,55 +1,25 @@
-<!doctype html>
-<html lang="en" data-page="hobbies">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hobbies | Portfolio</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <title>Hobbies</title>
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 <body>
-  <div id="loader" class="loader" aria-label="Loading">
-    <div class="loader__frame" aria-hidden="true"></div>
-    <div class="loader__text">Loading…</div>
+
+<nav class="navbar">…same navbar…</nav>
+<div id="scroll-progress"></div>
+
+<section class="container">
+  <h2>Blogs</h2>
+
+  <div class="grid">
+    <a class="card" href="https://example.com">
+      <img src="https://via.placeholder.com/300">
+      <h3>Blog Title</h3>
+    </a>
   </div>
-  <div id="spark-layer" aria-hidden="true"></div>
-  <div id="scroll-progress" class="scroll-progress" aria-hidden="true"></div>
+</section>
 
-  <header class="site-header">
-    <nav class="nav container" aria-label="Primary navigation">
-      <a class="brand" href="index.html">Harsh Bari</a>
-
-      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
-        <span class="nav__hamburger"></span>
-      </button>
-
-      <div class="nav__menu" id="navMenu">
-        <a class="nav__link" href="index.html">Home</a>
-        <a class="nav__link" href="career_timeline.html">Career Timeline</a>
-        <a class="nav__link" href="projects.html">Projects</a>
-        <a class="nav__link" href="achievements.html">Achievements</a>
-        <a class="nav__link active" href="hobbies.html">Hobbies</a>
-      </div>
-    </nav>
-  </header>
-
-  <main class="container page">
-    <section class="card">
-      <div class="section-head">
-        <h1 class="h1">Hobbies</h1>
-        <p class="muted">Turning “Why study this?” into “Ohh, that’s why!” Data Science student sharing real-life twists to make boring subjects a bit more fun. No theory, just vibes.</p>
-      </div>
-
-      <div id="hobbiesSections"></div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer__inner">
-      <span class="muted">© <span id="year"></span> Harsh Bari</span>
-    </div>
-  </footer>
-
-  <script src="assets/js/script.js"></script>
+<script src="assets/js/script.js"></script>
 </body>
 </html>
