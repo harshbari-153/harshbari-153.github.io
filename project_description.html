@@ -1,46 +1,196 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Project Description</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio | Project Details</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
 </head>
 <body>
-
-<nav class="navbar">…same navbar…</nav>
-<div id="scroll-progress"></div>
-
-<section class="container">
-  <h1 id="project-title">Project Title</h1>
-
-  <div class="collapse-if-empty thumbnail"></div>
-
-  <p><strong>Duration:</strong> Jan 2023 – Mar 2023</p>
-
-  <div class="skills floating">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"/>
-  </div>
-
-  <h3>Problem Statement</h3>
-  <p>[Text]</p>
-
-  <h3>Flowcharts</h3>
-  <div class="grid">
-    <div class="collapse-if-empty img-box"></div>
-    <div class="collapse-if-empty img-box"></div>
-  </div>
-
-  <h3>Outputs</h3>
-  <div class="grid">
-    <div class="collapse-if-empty img-box"></div>
-    <div class="collapse-if-empty img-box"></div>
-    <div class="collapse-if-empty img-box"></div>
-    <div class="collapse-if-empty img-box"></div>
-  </div>
-
-  <a class="btn" href="#">Live Project</a>
-  <a class="btn secondary" href="#">GitHub Repo</a>
-</section>
-
-<script src="assets/js/script.js"></script>
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar"></div>
+    </div>
+    
+    <!-- Header & Navigation -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Portfolio</a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="nav-desktop">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="career_timeline.html">Career Timeline</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="achievements.html">Achievements</a></li>
+                    <li><a href="hobbies.html">Hobbies</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Mobile Navigation -->
+            <nav class="nav-mobile">
+                <button class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="mobile-menu">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="career_timeline.html">Career Timeline</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="achievements.html">Achievements</a></li>
+                        <li><a href="hobbies.html">Hobbies</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="main-container">
+        <!-- Project Header -->
+        <div class="project-header">
+            <h1 class="project-title">Predictive Analytics for Customer Behavior</h1>
+            
+            <div class="project-meta">
+                <div class="project-meta-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span class="project-date">Jan 2024 - Apr 2024</span>
+                </div>
+                <div class="project-meta-item">
+                    <i class="fas fa-tags"></i>
+                    <span>Machine Learning, Data Science</span>
+                </div>
+                <div class="project-meta-item">
+                    <i class="fas fa-code"></i>
+                    <span>Python, Streamlit, Pandas</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Project Image -->
+        <div class="project-image-container">
+            <div class="profile-image-missing" style="height: 400px;">
+                <i class="fas fa-project-diagram fa-5x"></i>
+                <p>Project Thumbnail Here</p>
+            </div>
+            <!-- Uncomment below when you have a project image -->
+            <!-- <img src="assets/images/project1-main.jpg" alt="Project Main Image" class="project-image-main"> -->
+        </div>
+        
+        <!-- Problem Statement -->
+        <section class="project-section">
+            <h3>Problem Statement</h3>
+            <p class="project-problem">Businesses struggle to predict customer churn and purchasing behavior, leading to revenue loss and ineffective marketing strategies. Manual analysis of customer data is time-consuming and often fails to identify complex patterns and trends in large datasets.</p>
+        </section>
+        
+        <!-- Skills Used -->
+        <section class="project-section">
+            <h3>Skills & Technologies Used</h3>
+            <div class="skills-container project-skills">
+                <!-- Skills will be populated by JavaScript -->
+            </div>
+        </section>
+        
+        <!-- Project Description -->
+        <section class="project-section">
+            <h3>Project Description</h3>
+            <p class="project-description">Developed a comprehensive machine learning solution to predict customer churn and purchasing patterns using historical transaction data. The system incorporates multiple algorithms including Random Forest, XGBoost, and Neural Networks to achieve high prediction accuracy. The solution includes an interactive Streamlit dashboard that provides real-time insights, customer segmentation, and predictive analytics for business decision-makers.</p>
+            
+            <p>The project involved data cleaning, feature engineering, model training, and deployment. Key features include customer lifetime value prediction, churn probability scoring, and personalized marketing recommendations. The final model achieved 94% accuracy on test data and reduced false positives by 23% compared to existing solutions.</p>
+        </section>
+        
+        <!-- Flowcharts -->
+        <section class="project-section">
+            <h3>System Architecture & Flowcharts</h3>
+            <div class="project-images-grid">
+                <div class="project-image-container">
+                    <div class="profile-image-missing" style="height: 200px;">
+                        <i class="fas fa-sitemap fa-3x"></i>
+                        <p>Architecture Diagram</p>
+                    </div>
+                </div>
+                <div class="project-image-container">
+                    <div class="profile-image-missing" style="height: 200px;">
+                        <i class="fas fa-project-diagram fa-3x"></i>
+                        <p>Data Flow Diagram</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Output Images -->
+        <section class="project-section">
+            <h3>Output & Results</h3>
+            <div class="project-images-grid">
+                <div class="project-image-container">
+                    <div class="profile-image-missing" style="height: 200px;">
+                        <i class="fas fa-chart-line fa-3x"></i>
+                        <p>Performance Metrics</p>
+                    </div>
+                </div>
+                <div class="project-image-container">
+                    <div class="profile-image-missing" style="height: 200px;">
+                        <i class="fas fa-chart-bar fa-3x"></i>
+                        <p>Visualization 1</p>
+                    </div>
+                </div>
+                <div class="project-image-container">
+                    <div class="profile-image-missing" style="height: 200px;">
+                        <i class="fas fa-chart-pie fa-3x"></i>
+                        <p>Visualization 2</p>
+                    </div>
+                </div>
+                <div class="project-image-container">
+                    <div class="profile-image-missing" style="height: 200px;">
+                        <i class="fas fa-table fa-3x"></i>
+                        <p>Results Summary</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Demo Video -->
+        <section class="project-section">
+            <h3>Project Demo</h3>
+            <div class="project-image-container">
+                <div class="profile-image-missing" style="height: 300px;">
+                    <i class="fas fa-video fa-3x"></i>
+                    <p>Demo Video Will Appear Here</p>
+                    <p><small>Google Drive link will be embedded here</small></p>
+                </div>
+            </div>
+            <p>Demo video showing the functionality of the predictive analytics dashboard and model performance.</p>
+        </section>
+        
+        <!-- Project Links -->
+        <section class="project-section">
+            <h3>Project Links</h3>
+            <div class="project-links">
+                <a href="https://drive.google.com/file/d/example1/view" class="btn btn-secondary demo-link" target="_blank">
+                    <i class="fas fa-video"></i> Watch Demo
+                </a>
+                <a href="https://customer-analytics-demo.streamlit.app/" class="btn" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> Live Project
+                </a>
+                <a href="https://github.com/username/customer-analytics" class="btn btn-secondary" target="_blank">
+                    <i class="fab fa-github"></i> GitHub Repository
+                </a>
+            </div>
+        </section>
+        
+        <!-- Back to Projects -->
+        <div style="text-align: center; margin-top: 50px;">
+            <a href="projects.html" class="btn">
+                <i class="fas fa-arrow-left"></i> Back to Projects
+            </a>
+        </div>
+    </main>
+    
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
