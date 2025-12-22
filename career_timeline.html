@@ -1,37 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Career Timeline</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio | Career Timeline</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
 </head>
 <body>
-
-<nav class="navbar">…same navbar…</nav>
-<div id="scroll-progress"></div>
-
-<section class="container timeline">
-  <div class="timeline-line"></div>
-
-  <div class="timeline-card left">
-    <h3>SSC</h3>
-    <p>2015 – 2016 | Location</p>
-    <p>Subject | Score</p>
-  </div>
-
-  <div class="timeline-card right">
-    <h3>HSC</h3>
-    <p>2017 – 2018 | Location</p>
-    <p>Subject | Score</p>
-  </div>
-
-  <div class="timeline-card left">
-    <h3>BTech</h3>
-    <p>2019 – 2023 | Location</p>
-    <p>Branch | CGPA</p>
-  </div>
-</section>
-
-<script src="assets/js/script.js"></script>
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar"></div>
+    </div>
+    
+    <!-- Header & Navigation -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Portfolio</a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="nav-desktop">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="career_timeline.html" class="active">Career Timeline</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="achievements.html">Achievements</a></li>
+                    <li><a href="hobbies.html">Hobbies</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Mobile Navigation -->
+            <nav class="nav-mobile">
+                <button class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="mobile-menu">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="career_timeline.html" class="active">Career Timeline</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="achievements.html">Achievements</a></li>
+                        <li><a href="hobbies.html">Hobbies</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="main-container">
+        <h1 class="section-title">Career Timeline</h1>
+        
+        <!-- Timeline -->
+        <div class="timeline">
+            <!-- Timeline Item 1 -->
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3 class="timeline-title">Secondary School Certificate (SSC)</h3>
+                    <div class="timeline-date">June 2016 - May 2017</div>
+                    
+                    <div class="timeline-details">
+                        <div class="timeline-detail">
+                            <i class="fas fa-map-marker-alt timeline-detail-icon"></i>
+                            <span>IOLF, Moti Daman</span>
+                        </div>
+                        <div class="timeline-detail">
+                            <i class="fas fa-book timeline-detail-icon"></i>
+                            <span>Gujarat Board (GSEB)</span>
+                        </div>
+                        <div class="timeline-detail">
+                            <i class="fas fa-chart-line timeline-detail-icon"></i>
+                            <span>Score: 86.67%</span>
+                        </div>
+                    </div>
+                    
+                    <p>Participated in 61st SGFI National Chess (2015-16) and runners up at Inter-School level Parade (2015) at 55th Daman Liberation Day.</p>
+                </div>
+            </div>
+            
+            <!-- Timeline Item 2 -->
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3 class="timeline-title">Higher Secondary Certificate (HSC)</h3>
+                    <div class="timeline-date">Jun 2017 - May 2019</div>
+                    
+                    <div class="timeline-details">
+                        <div class="timeline-detail">
+                            <i class="fas fa-map-marker-alt timeline-detail-icon"></i>
+                            <span>IOLF, Moti Daman</span>
+                        </div>
+                        <div class="timeline-detail">
+                            <i class="fas fa-book timeline-detail-icon"></i>
+                            <span>Gujarat Board (GSHEB)</span>
+                        </div>
+                        <div class="timeline-detail">
+                            <i class="fas fa-chart-line timeline-detail-icon"></i>
+                            <span>Score: 79.93%</span>
+                        </div>
+                    </div>
+                    
+                    <p>Secured 1st position in School Science Exhibition and qualified for district level.</p>
+                </div>
+            </div>
+            
+            <!-- Timeline Item 3 -->
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3 class="timeline-title">Bachelor of Technology (BTech)</h3>
+                    <div class="timeline-date">Aug 2019 - April 2023</div>
+                    
+                    <div class="timeline-details">
+                        <div class="timeline-detail">
+                            <i class="fas fa-map-marker-alt timeline-detail-icon"></i>
+                            <span>PIET Vadodara, Gujarat</span>
+                        </div>
+                        <div class="timeline-detail">
+                            <i class="fas fa-book timeline-detail-icon"></i>
+                            <span>Computer Science</span>
+                        </div>
+                        <div class="timeline-detail">
+                            <i class="fas fa-chart-line timeline-detail-icon"></i>
+                            <span>CGPA: 8.7/10</span>
+                        </div>
+                    </div>
+                    
+                    <p>Graduated with honors in Computer Science. Specialized in Data Science and Machine Learning. Completed thesis on "Predictive Analytics using Ensemble Methods". Actively participated in coding competitions and hackathons.</p>
+                </div>
+            </div>
+            
+            <!-- Timeline Item 4 -->
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3 class="timeline-title">Masters of Technology (MTech)</h3>
+                    <div class="timeline-date">Jun 2013 - May 2015</div>
+                    
+                    <div class="timeline-details">
+                        <div class="timeline-detail">
+                            <i class="fas fa-map-marker-alt timeline-detail-icon"></i>
+                            <span>State Junior College, Pune</span>
+                        </div>
+                        <div class="timeline-detail">
+                            <i class="fas fa-book timeline-detail-icon"></i>
+                            <span>Physics, Chemistry, Mathematics</span>
+                        </div>
+                        <div class="timeline-detail">
+                            <i class="fas fa-chart-line timeline-detail-icon"></i>
+                            <span>Score: 88.3%</span>
+                        </div>
+                    </div>
+                    
+                    <p>Specialized in Science stream with PCM subjects. Developed strong foundation in analytical thinking and problem-solving. Served as president of Science Club.</p>
+                </div>
+            </div>
+            
+            <!-- Timeline Item 5 -->
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3 class="timeline-title">Bachelor of Technology (BTech)</h3>
+                    <div class="timeline-date">Aug 2015 - May 2019</div>
+                    
+                    <div class="timeline-details">
+                        <div class="timeline-detail">
+                            <i class="fas fa-map-marker-alt timeline-detail-icon"></i>
+                            <span>State University of Technology, Delhi</span>
+                        </div>
+                        <div class="timeline-detail">
+                            <i class="fas fa-book timeline-detail-icon"></i>
+                            <span>Computer Science & Engineering</span>
+                        </div>
+                        <div class="timeline-detail">
+                            <i class="fas fa-chart-line timeline-detail-icon"></i>
+                            <span>CGPA: 8.7/10</span>
+                        </div>
+                    </div>
+                    
+                    <p>Graduated with honors in Computer Science. Specialized in Data Science and Machine Learning. Completed thesis on "Predictive Analytics using Ensemble Methods". Actively participated in coding competitions and hackathons.</p>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+    
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
