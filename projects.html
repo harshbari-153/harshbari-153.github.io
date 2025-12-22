@@ -1,31 +1,119 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Projects</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio | Projects</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
 </head>
 <body>
-
-<nav class="navbar">…same navbar…</nav>
-<div id="scroll-progress"></div>
-
-<section class="container grid">
-  <div class="card project" onclick="openProject(1)">
-    <div class="icon">📁</div>
-    <h3>Project One</h3>
-  </div>
-
-  <div class="card project" onclick="openProject(2)">
-    <div class="icon">📁</div>
-    <h3>Project Two</h3>
-  </div>
-
-  <div class="card project" onclick="openProject(3)">
-    <div class="icon">📁</div>
-    <h3>Project Three</h3>
-  </div>
-</section>
-
-<script src="assets/js/script.js"></script>
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar"></div>
+    </div>
+    
+    <!-- Header & Navigation -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Portfolio</a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="nav-desktop">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="career_timeline.html">Career Timeline</a></li>
+                    <li><a href="projects.html" class="active">Projects</a></li>
+                    <li><a href="achievements.html">Achievements</a></li>
+                    <li><a href="hobbies.html">Hobbies</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Mobile Navigation -->
+            <nav class="nav-mobile">
+                <button class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="mobile-menu">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="career_timeline.html">Career Timeline</a></li>
+                        <li><a href="projects.html" class="active">Projects</a></li>
+                        <li><a href="achievements.html">Achievements</a></li>
+                        <li><a href="hobbies.html">Hobbies</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="main-container">
+        <h1 class="section-title">My Projects</h1>
+        
+        <!-- Projects Grid -->
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <a href="project_description.html?id=1" class="project-tile">
+                <div class="project-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <!-- If you have a thumbnail image, uncomment below -->
+                <!-- <img src="assets/images/project1-thumb.jpg" alt="Project 1" class="project-thumbnail"> -->
+                <h3>Predictive Analytics for Customer Behavior</h3>
+                <p>Machine learning model to predict customer churn and purchasing patterns</p>
+            </a>
+            
+            <!-- Project 2 -->
+            <a href="project_description.html?id=2" class="project-tile">
+                <div class="project-icon">
+                    <i class="fas fa-file-alt"></i>
+                </div>
+                <h3>Automated Document Classification System</h3>
+                <p>Deep learning model for automatic document categorization</p>
+            </a>
+            
+            <!-- Project 3 -->
+            <a href="project_description.html?id=1" class="project-tile">
+                <div class="project-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h3>Sentiment Analysis for Social Media</h3>
+                <p>NLP pipeline for analyzing sentiment in social media posts</p>
+            </a>
+            
+            <!-- Project 4 -->
+            <a href="project_description.html?id=2" class="project-tile">
+                <div class="project-icon">
+                    <i class="fas fa-chart-bar"></i>
+                </div>
+                <h3>Real-time Sales Dashboard</h3>
+                <p>Interactive dashboard for monitoring sales performance</p>
+            </a>
+            
+            <!-- Project 5 -->
+            <a href="project_description.html?id=1" class="project-tile">
+                <div class="project-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Fraud Detection System</h3>
+                <p>Anomaly detection model for identifying fraudulent transactions</p>
+            </a>
+            
+            <!-- Project 6 -->
+            <a href="project_description.html?id=2" class="project-tile">
+                <div class="project-icon">
+                    <i class="fas fa-image"></i>
+                </div>
+                <h3>Image Recognition API</h3>
+                <p>CNN-based model for object recognition with REST API</p>
+            </a>
+        </div>
+    </main>
+    
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
