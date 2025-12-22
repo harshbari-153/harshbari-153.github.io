@@ -1,25 +1,224 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Hobbies</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio | Hobbies</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
 </head>
 <body>
-
-<nav class="navbar">…same navbar…</nav>
-<div id="scroll-progress"></div>
-
-<section class="container">
-  <h2>Blogs</h2>
-
-  <div class="grid">
-    <a class="card" href="https://example.com">
-      <img src="https://via.placeholder.com/300">
-      <h3>Blog Title</h3>
-    </a>
-  </div>
-</section>
-
-<script src="assets/js/script.js"></script>
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar"></div>
+    </div>
+    
+    <!-- Header & Navigation -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Portfolio</a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="nav-desktop">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="career_timeline.html">Career Timeline</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="achievements.html">Achievements</a></li>
+                    <li><a href="hobbies.html" class="active">Hobbies</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Mobile Navigation -->
+            <nav class="nav-mobile">
+                <button class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="mobile-menu">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="career_timeline.html">Career Timeline</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="achievements.html">Achievements</a></li>
+                        <li><a href="hobbies.html" class="active">Hobbies</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="main-container">
+        <h1 class="section-title">My Hobbies & Interests</h1>
+        
+        <!-- Blogs Section -->
+        <section class="page-section">
+            <h2 class="section-title">Blogs & Writing</h2>
+            <div class="hobbies-grid">
+                <!-- Blog 1 -->
+                <a href="#" class="hobby-tile">
+                    <div class="hobby-image-container">
+                        <div class="hobby-image-missing">
+                            <i class="fas fa-blog fa-3x"></i>
+                            <p>Blog Thumbnail</p>
+                        </div>
+                        <!-- Uncomment below when you have an image -->
+                        <!-- <img src="assets/images/blog1-thumb.jpg" alt="Machine Learning Basics" class="hobby-image"> -->
+                    </div>
+                    <h3 class="hobby-title">Understanding Neural Networks: A Beginner's Guide</h3>
+                    <p>A comprehensive introduction to neural networks, covering basic concepts, architecture, and real-world applications.</p>
+                </a>
+                
+                <!-- Blog 2 -->
+                <a href="#" class="hobby-tile">
+                    <div class="hobby-image-container">
+                        <div class="hobby-image-missing">
+                            <i class="fas fa-chart-line fa-3x"></i>
+                            <p>Data Visualization</p>
+                        </div>
+                    </div>
+                    <h3 class="hobby-title">Data Visualization Best Practices in 2024</h3>
+                    <p>Exploring the latest trends and techniques for creating effective and engaging data visualizations.</p>
+                </a>
+                
+                <!-- Blog 3 -->
+                <a href="#" class="hobby-tile">
+                    <div class="hobby-image-container">
+                        <div class="hobby-image-missing">
+                            <i class="fas fa-code fa-3x"></i>
+                            <p>Coding Tutorial</p>
+                        </div>
+                    </div>
+                    <h3 class="hobby-title">Building Your First Streamlit App</h3>
+                    <p>Step-by-step tutorial on creating interactive data applications using Python and Streamlit.</p>
+                </a>
+                
+                <!-- Blog 4 -->
+                <a href="#" class="hobby-tile">
+                    <div class="hobby-image-container">
+                        <div class="hobby-image-missing">
+                            <i class="fas fa-robot fa-3x"></i>
+                            <p>AI Ethics</p>
+                        </div>
+                    </div>
+                    <h3 class="hobby-title">Ethical Considerations in AI Development</h3>
+                    <p>Discussing the importance of ethics, bias mitigation, and responsible AI practices.</p>
+                </a>
+                
+                <!-- Blog 5 -->
+                <a href="#" class="hobby-tile">
+                    <div class="hobby-image-container">
+                        <div class="hobby-image-missing">
+                            <i class="fas fa-database fa-3x"></i>
+                            <p>Database Design</p>
+                        </div>
+                    </div>
+                    <h3 class="hobby-title">Optimizing Database Performance for Analytics</h3>
+                    <p>Techniques and strategies for designing efficient databases for data analytics workloads.</p>
+                </a>
+                
+                <!-- Blog 6 -->
+                <a href="#" class="hobby-tile">
+                    <div class="hobby-image-container">
+                        <div class="hobby-image-missing">
+                            <i class="fas fa-graduation-cap fa-3x"></i>
+                            <p>Career Growth</p>
+                        </div>
+                    </div>
+                    <h3 class="hobby-title">Career Pathways in Data Science</h3>
+                    <p>Exploring different career options, required skills, and growth opportunities in data science.</p>
+                </a>
+            </div>
+        </section>
+        
+        <!-- Photography Section (Example of another hobby section) -->
+        <section class="page-section">
+            <h2 class="section-title">Photography</h2>
+            <div class="hobbies-grid">
+                <!-- Photo 1 -->
+                <div class="hobby-tile">
+                    <div class="hobby-image-container">
+                        <div class="hobby-image-missing">
+                            <i class="fas fa-camera fa-3x"></i>
+                            <p>Landscape Photo</p>
+                        </div>
+                    </div>
+                    <h3 class="hobby-title">Mountain Landscapes</h3>
+                    <p>Capturing the beauty of nature through landscape photography during hiking trips.</p>
+                </div>
+                
+                <!-- Photo 2 -->
+                <div class="hobby-tile">
+                    <div class="hobby-image-container">
+                        <div class="hobby-image-missing">
+                            <i class="fas fa-city fa-3x"></i>
+                            <p>Urban Photography</p>
+                        </div>
+                    </div>
+                    <h3 class="hobby-title">Urban Architecture</h3>
+                    <p>Exploring geometric patterns and structures in urban environments.</p>
+                </div>
+                
+                <!-- Photo 3 -->
+                <div class="hobby-tile">
+                    <div class="hobby-image-container">
+                        <div class="hobby-image-missing">
+                            <i class="fas fa-moon fa-3x"></i>
+                            <p>Astrophotography</p>
+                        </div>
+                    </div>
+                    <h3 class="hobby-title">Night Sky & Stars</h3>
+                    <p>Long exposure photography of celestial objects and the night sky.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Travel Section (Example of another hobby section) -->
+        <section class="page-section">
+            <h2 class="section-title">Travel & Exploration</h2>
+            <div class="hobbies-grid">
+                <!-- Travel 1 -->
+                <div class="hobby-tile">
+                    <div class="hobby-image-container">
+                        <div class="hobby-image-missing">
+                            <i class="fas fa-hiking fa-3x"></i>
+                            <p>Hiking Adventure</p>
+                        </div>
+                    </div>
+                    <h3 class="hobby-title">Himalayan Treks</h3>
+                    <p>Documenting experiences and challenges of high-altitude trekking in the Himalayas.</p>
+                </div>
+                
+                <!-- Travel 2 -->
+                <div class="hobby-tile">
+                    <div class="hobby-image-container">
+                        <div class="hobby-image-missing">
+                            <i class="fas fa-utensils fa-3x"></i>
+                            <p>Culinary Exploration</p>
+                        </div>
+                    </div>
+                    <h3 class="hobby-title">Culinary Journeys</h3>
+                    <p>Exploring local cuisines and food cultures during travels across different regions.</p>
+                </div>
+                
+                <!-- Travel 3 -->
+                <div class="hobby-tile">
+                    <div class="hobby-image-container">
+                        <div class="hobby-image-missing">
+                            <i class="fas fa-monument fa-3x"></i>
+                            <p>Historical Sites</p>
+                        </div>
+                    </div>
+                    <h3 class="hobby-title">Historical Exploration</h3>
+                    <p>Visiting and photographing historical monuments and archaeological sites.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
