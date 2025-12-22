@@ -1,36 +1,202 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Achievements</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio | Achievements</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
 </head>
 <body>
-
-<nav class="navbar">…same navbar…</nav>
-<div id="scroll-progress"></div>
-
-<section class="container">
-
-<h2>Research Publications</h2>
-<p>Mar 2024 — <a href="#">Paper Title (Full Link)</a></p>
-
-<h2>Exams</h2>
-<div class="card">
-  <div class="collapse-if-empty img-box"></div>
-  <h3>GATE</h3>
-  <span class="tag">Score: 95</span>
-  <span class="tag">Rank: 1200</span>
-</div>
-
-<h2>Awards</h2>
-<div class="card">
-  <h3>Best Project Award</h3>
-  <p>Venue | Jan 2024</p>
-  <p>Description (max 200 chars)</p>
-</div>
-
-</section>
-
-<script src="assets/js/script.js"></script>
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar"></div>
+    </div>
+    
+    <!-- Header & Navigation -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Portfolio</a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="nav-desktop">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="career_timeline.html">Career Timeline</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="achievements.html" class="active">Achievements</a></li>
+                    <li><a href="hobbies.html">Hobbies</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Mobile Navigation -->
+            <nav class="nav-mobile">
+                <button class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="mobile-menu">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="career_timeline.html">Career Timeline</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="achievements.html" class="active">Achievements</a></li>
+                        <li><a href="hobbies.html">Hobbies</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="main-container">
+        <h1 class="section-title">Achievements & Recognitions</h1>
+        
+        <!-- Research Publications -->
+        <section class="achievement-section">
+            <h2 class="section-title">Research Publications</h2>
+            <div class="achievement-cards">
+                <div class="achievement-card">
+                    <div class="achievement-header">
+                        <h3 class="achievement-title">"Advanced Ensemble Methods for Imbalanced Data Classification"</h3>
+                        <div class="achievement-date">Mar 2024</div>
+                    </div>
+                    <p>Published in International Journal of Data Science and Analytics (IJDA), Volume 12, Issue 3.</p>
+                    <a href="https://www.ijdsa.com/paper/advanced-ensemble-methods" class="achievement-link" target="_blank">
+                        https://www.ijdsa.com/paper/advanced-ensemble-methods
+                    </a>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-header">
+                        <h3 class="achievement-title">"Real-time Anomaly Detection in Streaming Data"</h3>
+                        <div class="achievement-date">Nov 2023</div>
+                    </div>
+                    <p>Presented at International Conference on Machine Learning (ICML) 2023, Honolulu, Hawaii.</p>
+                    <a href="https://icml.cc/Conferences/2023/Schedule?showEvent=12345" class="achievement-link" target="_blank">
+                        https://icml.cc/Conferences/2023/Schedule?showEvent=12345
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Exams -->
+        <section class="achievement-section">
+            <h2 class="section-title">Exams & Certifications</h2>
+            <div class="achievement-cards">
+                <div class="achievement-card">
+                    <div class="achievement-image-container">
+                        <div class="achievement-image-missing">
+                            <i class="fas fa-award fa-3x"></i>
+                            <p>Certification Badge</p>
+                        </div>
+                        <!-- Uncomment below when you have an image -->
+                        <!-- <img src="assets/images/aws-cert.jpg" alt="AWS Certification" class="achievement-image"> -->
+                    </div>
+                    <div class="achievement-header">
+                        <h3 class="achievement-title">AWS Certified Data Analytics - Specialty</h3>
+                        <div class="achievement-date">Feb 2024</div>
+                    </div>
+                    <p>AWS (Amazon Web Services)</p>
+                    <div class="achievement-labels">
+                        <span class="achievement-label">Score: 912/1000</span>
+                        <span class="achievement-label">Valid until: Feb 2027</span>
+                    </div>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-image-container">
+                        <div class="achievement-image-missing">
+                            <i class="fas fa-certificate fa-3x"></i>
+                            <p>Exam Certificate</p>
+                        </div>
+                    </div>
+                    <div class="achievement-header">
+                        <h3 class="achievement-title">Google Data Analytics Professional Certificate</h3>
+                        <div class="achievement-date">Sep 2023</div>
+                    </div>
+                    <p>Google Career Certificates</p>
+                    <div class="achievement-labels">
+                        <span class="achievement-label">Completed 8 courses</span>
+                        <span class="achievement-label">Capstone Project: Distinction</span>
+                    </div>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-image-container">
+                        <div class="achievement-image-missing">
+                            <i class="fas fa-medal fa-3x"></i>
+                            <p>Competition Medal</p>
+                        </div>
+                    </div>
+                    <div class="achievement-header">
+                        <h3 class="achievement-title">National Data Science Olympiad</h3>
+                        <div class="achievement-date">Dec 2023</div>
+                    </div>
+                    <p>All India Rank</p>
+                    <div class="achievement-labels">
+                        <span class="achievement-label">Rank: 47</span>
+                        <span class="achievement-label">Percentile: 99.2</span>
+                        <span class="achievement-label">Silver Medal</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Awards -->
+        <section class="achievement-section">
+            <h2 class="section-title">Awards & Honors</h2>
+            <div class="achievement-cards">
+                <div class="achievement-card">
+                    <div class="achievement-image-container">
+                        <div class="achievement-image-missing">
+                            <i class="fas fa-trophy fa-3x"></i>
+                            <p>Award Photo</p>
+                        </div>
+                    </div>
+                    <div class="achievement-header">
+                        <h3 class="achievement-title">Best Undergraduate Thesis Award</h3>
+                        <div class="achievement-date">May 2019</div>
+                    </div>
+                    <p>State University of Technology, Delhi</p>
+                    <p>Awarded for outstanding research work on "Predictive Analytics using Ensemble Methods". Selected from 150+ submissions based on innovation, impact, and technical depth.</p>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-image-container">
+                        <div class="achievement-image-missing">
+                            <i class="fas fa-star fa-3x"></i>
+                            <p>Hackathon Photo</p>
+                        </div>
+                    </div>
+                    <div class="achievement-header">
+                        <h3 class="achievement-title">1st Place - National AI Hackathon</h3>
+                        <div class="achievement-date">Oct 2023</div>
+                    </div>
+                    <p>TechInnovate 2023, Bangalore</p>
+                    <p>Led a team of 4 to develop an AI solution for sustainable agriculture. Won among 200+ teams for innovative use of satellite imagery and machine learning for crop yield prediction.</p>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-image-container">
+                        <div class="achievement-image-missing">
+                            <i class="fas fa-graduation-cap fa-3x"></i>
+                            <p>Convocation Photo</p>
+                        </div>
+                    </div>
+                    <div class="achievement-header">
+                        <h3 class="achievement-title">University Gold Medalist</h3>
+                        <div class="achievement-date">Jun 2019</div>
+                    </div>
+                    <p>State University of Technology Convocation</p>
+                    <p>Awarded Gold Medal for securing first position in Computer Science & Engineering department. Recognized for academic excellence and contributions to university research projects.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
