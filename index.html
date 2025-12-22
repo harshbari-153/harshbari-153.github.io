@@ -1,55 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Harsh | Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="assets/css/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio | Home</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
 </head>
 <body>
-
-<div id="loader"></div>
-<div id="scroll-progress"></div>
-
-<nav class="navbar">
-  <div class="nav-brand">Harsh</div>
-  <div class="nav-toggle">&#9776;</div>
-  <ul class="nav-links">
-    <li><a class="active" href="index.html">Home</a></li>
-    <li><a href="career_timeline.html">Career Timeline</a></li>
-    <li><a href="projects.html">Projects</a></li>
-    <li><a href="achievements.html">Achievements</a></li>
-    <li><a href="hobbies.html">Hobbies</a></li>
-  </ul>
-</nav>
-
-<section class="container home">
-  <div class="profile-img collapse-if-empty">
-    <!-- Add img tag if photo exists -->
-  </div>
-
-  <div class="home-content">
-    <p class="bio">[Short bio goes here]</p>
-
-    <a class="btn" href="assets/harsh_bari_ds.pdf" download>Download Resume</a>
-
-    <div class="skills floating">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"/>
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/streamlit/streamlit-original-wordmark.svg"/>
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original-wordmark.svg"/>
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar"></div>
     </div>
-
-    <p><strong>DOB:</strong> [Your DOB]</p>
-    <p><strong>Location:</strong> [Your Location]</p>
-
-    <div class="connections">
-      <a href="#">LinkedIn</a>
-      <a href="#">GitHub</a>
-      <a href="mailto:you@email.com">Email</a>
-    </div>
-  </div>
-</section>
-
-<script src="assets/js/script.js"></script>
+    
+    <!-- Header & Navigation -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Portfolio</a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="nav-desktop">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="career_timeline.html">Career Timeline</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="achievements.html">Achievements</a></li>
+                    <li><a href="hobbies.html">Hobbies</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Mobile Navigation -->
+            <nav class="nav-mobile">
+                <button class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="mobile-menu">
+                    <ul>
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="career_timeline.html">Career Timeline</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="achievements.html">Achievements</a></li>
+                        <li><a href="hobbies.html">Hobbies</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="main-container">
+        <!-- Hero Section -->
+        <section class="hero page-section">
+            <div class="profile-image-container">
+                <!-- Profile Image - Will be replaced with actual image -->
+                <div class="profile-image-missing">
+                    <!-- <i class="fas fa-user-circle fa-5x"></i> -->
+                    <!-- <p>Your Photo Here</p> -->
+                    <img src="assets/images/profile.jpg" alt="Harsh Bari" class="profile-image">
+                </div>
+                <!-- Uncomment below when you have a profile image -->
+                <!-- <img src="assets/images/profile.jpg" alt="Your Name" class="profile-image"> -->
+            </div>
+            
+            <div class="hero-content">
+                <h1>Harsh Bari</h1>
+                <p class="hero-subtitle">Data Science | NLP Enthusiast | Research & Development</p>
+                
+                <div class="bio">
+                    <p>Welcome to my portfolio! I'm MTech graduate in data scientist with expertise in natural language processing, machine learning and statistical analysis. I enjoy extracting hidden patterns from messy data and building intelligent systems that solve real-world problems.</p><br>
+                    <p>With a strong foundation in Data Science and NLP, I specialize in developing predictive models and natural language processing applications.</p>
+                </div>
+                
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <i class="fas fa-calendar-alt detail-icon"></i>
+                        <div>
+                            <div class="detail-label">Date of Birth</div>
+                            <div class="detail-value">April 30, 2001</div>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-map-marker-alt detail-icon"></i>
+                        <div>
+                            <div class="detail-label">Location</div>
+                            <div class="detail-value">Daman, India</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <a href="assets/harsh_bari_ds.pdf" class="btn" download>
+                    <i class="fas fa-download"></i> Download Resume
+                </a>
+            </div>
+        </section>
+        
+        <!-- Skills Section -->
+        <section class="skills-section page-section">
+            <h2 class="section-title">Skills & Technologies</h2>
+            <div class="skills-container">
+                <!-- Python -->
+                <div class="skill-icon">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python">
+                </div>
+                <!-- Pandas -->
+                <div class="skill-icon">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original-wordmark.svg" alt="Pandas">
+                </div>
+                <!-- Streamlit -->
+                <div class="skill-icon">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/streamlit/streamlit-original-wordmark.svg" alt="Streamlit">
+                </div>
+                <!-- NumPy -->
+                <div class="skill-icon">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg" alt="NumPy">
+                </div>
+                <!-- Scikit-learn -->
+                <div class="skill-icon">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg" alt="Scikit-learn">
+                </div>
+                <!-- TensorFlow -->
+                <div class="skill-icon">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow">
+                </div>
+                <!-- Matplotlib -->
+                <div class="skill-icon">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matplotlib/matplotlib-plain-wordmark.svg" alt="Matplotlib">
+                </div>
+                <!-- Docker -->
+                <div class="skill-icon">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="Docker">
+                </div>
+                <!-- Git -->
+                <div class="skill-icon">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git">
+                </div>
+                <!-- JavaScript -->
+                <div class="skill-icon">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript">
+                </div>
+            </div>
+        </section>
+        
+        <!-- Connections Section -->
+        <section class="connections-section page-section">
+            <h2 class="section-title">Connect With Me</h2>
+            <div class="connections">
+                <a href="https://linkedin.com/in/harshbari153" class="connection-link" target="_blank">
+                    <i class="fab fa-linkedin connection-icon"></i>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://github.com/harshbari-153" class="connection-link" target="_blank">
+                    <i class="fab fa-github connection-icon"></i>
+                    <span>GitHub</span>
+                </a>
+                <a href="mailto:bari.harsh2001@gmail.com" class="connection-link">
+                    <i class="fas fa-envelope connection-icon"></i>
+                    <span>Email</span>
+                </a>
+            </div>
+        </section>
+    </main>
+    
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
