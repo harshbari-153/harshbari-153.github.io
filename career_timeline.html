@@ -1,117 +1,37 @@
-<!doctype html>
-<html lang="en" data-page="timeline">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Career Timeline | Portfolio</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <meta charset="UTF-8">
+  <title>Career Timeline</title>
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 <body>
-  <div id="loader" class="loader" aria-label="Loading">
-    <div class="loader__frame" aria-hidden="true"></div>
-    <div class="loader__text">Loading…</div>
+
+<nav class="navbar">…same navbar…</nav>
+<div id="scroll-progress"></div>
+
+<section class="container timeline">
+  <div class="timeline-line"></div>
+
+  <div class="timeline-card left">
+    <h3>SSC</h3>
+    <p>2015 – 2016 | Location</p>
+    <p>Subject | Score</p>
   </div>
-  <div id="spark-layer" aria-hidden="true"></div>
-  <div id="scroll-progress" class="scroll-progress" aria-hidden="true"></div>
 
-  <header class="site-header">
-    <nav class="nav container" aria-label="Primary navigation">
-      <a class="brand" href="index.html">Harsh Bari</a>
+  <div class="timeline-card right">
+    <h3>HSC</h3>
+    <p>2017 – 2018 | Location</p>
+    <p>Subject | Score</p>
+  </div>
 
-      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
-        <span class="nav__hamburger"></span>
-      </button>
+  <div class="timeline-card left">
+    <h3>BTech</h3>
+    <p>2019 – 2023 | Location</p>
+    <p>Branch | CGPA</p>
+  </div>
+</section>
 
-      <div class="nav__menu" id="navMenu">
-        <a class="nav__link" href="index.html">Home</a>
-        <a class="nav__link active" href="career_timeline.html">Career Timeline</a>
-        <a class="nav__link" href="projects.html">Projects</a>
-        <a class="nav__link" href="achievements.html">Achievements</a>
-        <a class="nav__link" href="hobbies.html">Hobbies</a>
-      </div>
-    </nav>
-  </header>
-
-  <main class="container page">
-    <section class="card">
-      <div class="section-head">
-        <h1 class="h1">Career Timeline</h1>
-        <p class="muted"></p>
-      </div>
-
-      <div class="timeline" aria-label="Career timeline">
-        <div class="timeline__line" aria-hidden="true"></div>
-
-        <article class="timeline__item left card card--soft">
-          <div class="timeline__dot" aria-hidden="true"></div>
-          <h3 class="h3">SSC</h3>
-          <div class="meta-grid">
-            <div><span class="meta-k">Start</span><span class="meta-v">Jun 2016</span></div>
-            <div><span class="meta-k">End</span><span class="meta-v">Mar 2017</span></div>
-            <div><span class="meta-k">School</span><span class="meta-v">IOLF, Moti Daman</span></div>
-            <div><span class="meta-k">Subject</span><span class="meta-v">Schooling</span></div>
-            <div><span class="meta-k">Percentage</span><span class="meta-v">80.67%</span></div>
-          </div>
-        </article>
-
-        <article class="timeline__item right card card--soft">
-          <div class="timeline__dot" aria-hidden="true"></div>
-          <h3 class="h3">HSC</h3>
-          <div class="meta-grid">
-            <div><span class="meta-k">Start</span><span class="meta-v">Jun 2017</span></div>
-            <div><span class="meta-k">End</span><span class="meta-v">Mar 2019</span></div>
-            <div><span class="meta-k">School</span><span class="meta-v">IOLF, Moti Daman</span></div>
-            <div><span class="meta-k">Subject</span><span class="meta-v">Science (Maths Group)</span></div>
-            <div><span class="meta-k">Percentage</span><span class="meta-v">79.93%</span></div>
-          </div>
-        </article>
-
-        <article class="timeline__item left card card--soft">
-          <div class="timeline__dot" aria-hidden="true"></div>
-          <h3 class="h3">BTech</h3>
-          <div class="meta-grid">
-            <div><span class="meta-k">Start</span><span class="meta-v">Aug 2019</span></div>
-            <div><span class="meta-k">End</span><span class="meta-v">May 2023</span></div>
-            <div><span class="meta-k">College</span><span class="meta-v">PIET, Vadodara</span></div>
-            <div><span class="meta-k">Subject</span><span class="meta-v">CSE / DS</span></div>
-            <div><span class="meta-k">Score</span><span class="meta-v">8.7 CGPA</span></div>
-          </div>
-        </article>
-
-        <article class="timeline__item right card card--soft">
-          <div class="timeline__dot" aria-hidden="true"></div>
-          <h3 class="h3">MTech</h3>
-          <div class="meta-grid">
-            <div><span class="meta-k">Start</span><span class="meta-v">21 Augest 2023</span></div>
-            <div><span class="meta-k">End</span><span class="meta-v">23 July 2025</span></div>
-            <div><span class="meta-k">College</span><span class="meta-v">NIT surat</span></div>
-            <div><span class="meta-k">Spealization</span><span class="meta-v">Data Science</span></div>
-            <div><span class="meta-k">Score</span><span class="meta-v">7.8 CGPA</span></div>
-          </div>
-        </article>
-
-        <article class="timeline__item left card card--soft">
-          <div class="timeline__dot" aria-hidden="true"></div>
-          <h3 class="h3">Job 1</h3>
-          <div class="meta-grid">
-            <div><span class="meta-k">Start</span><span class="meta-v">1 Nov 2025</span></div>
-            <div><span class="meta-k">End</span><span class="meta-v">Ongoing</span></div>
-            <div><span class="meta-k">Company</span><span class="meta-v">Meril, Vapi</span></div>
-            <div><span class="meta-k">Post</span><span class="meta-v">Executive Officer</span></div>
-            <div><span class="meta-k">Department</span><span class="meta-v">Research and Development</span></div>
-          </div>
-        </article>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer__inner">
-      <span class="muted">© <span id="year"></span> Harsh Bari</span>
-    </div>
-  </footer>
-
-  <script src="assets/js/script.js"></script>
+<script src="assets/js/script.js"></script>
 </body>
 </html>
