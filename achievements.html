@@ -1,181 +1,36 @@
-<!doctype html>
-<html lang="en" data-page="achievements">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Achievements | Portfolio</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <title>Achievements</title>
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 <body>
-  <div id="loader" class="loader" aria-label="Loading">
-    <div class="loader__frame" aria-hidden="true"></div>
-    <div class="loader__text">Loading…</div>
-  </div>
-  <div id="spark-layer" aria-hidden="true"></div>
-  <div id="scroll-progress" class="scroll-progress" aria-hidden="true"></div>
 
-  <header class="site-header">
-    <nav class="nav container" aria-label="Primary navigation">
-      <a class="brand" href="index.html">Harsh Bari</a>
+<nav class="navbar">…same navbar…</nav>
+<div id="scroll-progress"></div>
 
-      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
-        <span class="nav__hamburger"></span>
-      </button>
+<section class="container">
 
-      <div class="nav__menu" id="navMenu">
-        <a class="nav__link" href="index.html">Home</a>
-        <a class="nav__link" href="career_timeline.html">Career Timeline</a>
-        <a class="nav__link" href="projects.html">Projects</a>
-        <a class="nav__link active" href="achievements.html">Achievements</a>
-        <a class="nav__link" href="hobbies.html">Hobbies</a>
-      </div>
-    </nav>
-  </header>
+<h2>Research Publications</h2>
+<p>Mar 2024 — <a href="#">Paper Title (Full Link)</a></p>
 
-  <main class="container page">
-    <section class="card">
-      <div class="section-head">
-        <h1 class="h1">Achievements</h1>
-        <p class="muted">Sections are stacked vertically. Month & year are required; day is optional.</p>
-      </div>
+<h2>Exams</h2>
+<div class="card">
+  <div class="collapse-if-empty img-box"></div>
+  <h3>GATE</h3>
+  <span class="tag">Score: 95</span>
+  <span class="tag">Rank: 1200</span>
+</div>
 
-      <div class="ach-stack">
-        <!-- Section 1: Research Publication -->
-        <section class="card card--soft ach-section" aria-label="Research Publication">
-          <div class="ach-head">
-            <h2 class="h2">Research Publication</h2>
-            <p class="muted small">Title + visible link.</p>
-          </div>
+<h2>Awards</h2>
+<div class="card">
+  <h3>Best Project Award</h3>
+  <p>Venue | Jan 2024</p>
+  <p>Description (max 200 chars)</p>
+</div>
 
-          <div class="ach-list">
-            <article class="ach-row">
-              <div class="badge">Sep 2025</div>
-              <div class="ach-body">
-                <div class="ach-title">Dummy Paper Title (Replace)</div>
-                <a class="item__link" href="https://example.com/full-paper-link" target="_blank" rel="noreferrer">
-                  https://example.com/full-paper-link
-                </a>
-              </div>
-            </article>
+</section>
 
-            <article class="ach-row">
-              <div class="badge">Jan 2025</div>
-              <div class="ach-body">
-                <div class="ach-title">Another Dummy Publication</div>
-                <a class="item__link" href="https://example.com/publication" target="_blank" rel="noreferrer">
-                  https://example.com/publication
-                </a>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <!-- Section 2: Exams -->
-        <section class="card card--soft ach-section" aria-label="Exams">
-          <div class="ach-head">
-            <h2 class="h2">Exams</h2>
-            <p class="muted small">Optional photo + exam name + subject + two dynamic labels.</p>
-          </div>
-
-          <div class="ach-list">
-            <article class="ach-exam">
-              <div class="media-box media-box--sm">
-                <img class="collapsible-media" alt="Exam photo (optional)" loading="lazy"
-                     src="assets/images/exam1.jpg"
-                     onerror="this.closest('.media-box').classList.add('is-collapsed'); this.remove();" />
-              </div>
-
-              <div class="ach-body">
-                <div class="ach-top">
-                  <div class="badge">Mar 2024</div>
-                  <div class="labels">
-                    <span class="label">Score: 95</span>
-                    <span class="label">Medal: Gold</span>
-                  </div>
-                </div>
-
-                <div class="ach-title">Dummy Exam Name</div>
-                <div class="muted">Subject: Dummy Subject</div>
-              </div>
-            </article>
-
-            <article class="ach-exam">
-              <div class="media-box media-box--sm">
-                <img class="collapsible-media" alt="Exam photo (optional)" loading="lazy"
-                     src=""
-                     onerror="this.closest('.media-box').classList.add('is-collapsed'); this.remove();" />
-              </div>
-
-              <div class="ach-body">
-                <div class="ach-top">
-                  <div class="badge">Nov 2023</div>
-                  <div class="labels">
-                    <span class="label">Percentile: 98</span>
-                    <span class="label">Rank: 120</span>
-                  </div>
-                </div>
-
-                <div class="ach-title">Another Dummy Exam</div>
-                <div class="muted">Subject: Aptitude</div>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <!-- Section 3: Awards -->
-        <section class="card card--soft ach-section" aria-label="Awards">
-          <div class="ach-head">
-            <h2 class="h2">Awards</h2>
-            <p class="muted small">Optional photo + title + venue + max 200 chars description.</p>
-          </div>
-
-          <div class="ach-list">
-            <article class="ach-award">
-              <div class="media-box media-box--sm">
-                <img class="collapsible-media" alt="Award photo (optional)" loading="lazy"
-                     src="assets/images/award1.jpg"
-                     onerror="this.closest('.media-box').classList.add('is-collapsed'); this.remove();" />
-              </div>
-
-              <div class="ach-body">
-                <div class="badge">Aug 2025</div>
-                <div class="ach-title">Best Project Award (Dummy)</div>
-                <div class="muted">Venue: Your College / Event</div>
-                <p class="muted small">
-                  Dummy description under 200 characters. Replace with your award summary and impact.
-                </p>
-              </div>
-            </article>
-
-            <article class="ach-award">
-              <div class="media-box media-box--sm">
-                <img class="collapsible-media" alt="Award photo (optional)" loading="lazy"
-                     src=""
-                     onerror="this.closest('.media-box').classList.add('is-collapsed'); this.remove();" />
-              </div>
-
-              <div class="ach-body">
-                <div class="badge">Dec 2024</div>
-                <div class="ach-title">Hackathon Winner (Dummy)</div>
-                <div class="muted">Venue: City / Organizer</div>
-                <p class="muted small">
-                  Dummy description under 200 characters. Replace with what you achieved and measurable impact.
-                </p>
-              </div>
-            </article>
-          </div>
-        </section>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer__inner">
-      <span class="muted">© <span id="year"></span> Harsh Bari</span>
-    </div>
-  </footer>
-
-  <script src="assets/js/script.js"></script>
+<script src="assets/js/script.js"></script>
 </body>
 </html>
