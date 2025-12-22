@@ -1,104 +1,46 @@
-<!doctype html>
-<html lang="en" data-page="project-description">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Project Details | Portfolio</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <title>Project Description</title>
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 <body>
-  <div id="loader" class="loader" aria-label="Loading">
-    <div class="loader__frame" aria-hidden="true"></div>
-    <div class="loader__text">Loading…</div>
+
+<nav class="navbar">…same navbar…</nav>
+<div id="scroll-progress"></div>
+
+<section class="container">
+  <h1 id="project-title">Project Title</h1>
+
+  <div class="collapse-if-empty thumbnail"></div>
+
+  <p><strong>Duration:</strong> Jan 2023 – Mar 2023</p>
+
+  <div class="skills floating">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"/>
   </div>
-  <div id="spark-layer" aria-hidden="true"></div>
-  <div id="scroll-progress" class="scroll-progress" aria-hidden="true"></div>
 
-  <header class="site-header">
-    <nav class="nav container" aria-label="Primary navigation">
-      <a class="brand" href="index.html">Harsh Bari</a>
+  <h3>Problem Statement</h3>
+  <p>[Text]</p>
 
-      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
-        <span class="nav__hamburger"></span>
-      </button>
+  <h3>Flowcharts</h3>
+  <div class="grid">
+    <div class="collapse-if-empty img-box"></div>
+    <div class="collapse-if-empty img-box"></div>
+  </div>
 
-      <div class="nav__menu" id="navMenu">
-        <a class="nav__link" href="index.html">Home</a>
-        <a class="nav__link" href="career_timeline.html">Career Timeline</a>
-        <a class="nav__link active" href="projects.html">Projects</a>
-        <a class="nav__link" href="achievements.html">Achievements</a>
-        <a class="nav__link" href="hobbies.html">Hobbies</a>
-      </div>
-    </nav>
-  </header>
+  <h3>Outputs</h3>
+  <div class="grid">
+    <div class="collapse-if-empty img-box"></div>
+    <div class="collapse-if-empty img-box"></div>
+    <div class="collapse-if-empty img-box"></div>
+    <div class="collapse-if-empty img-box"></div>
+  </div>
 
-  <main class="container page">
-    <section class="card">
-      <div class="section-head">
-        <h1 class="h1" id="pdTitle">Project Title</h1>
-        <p class="muted" id="pdDates">Start — End</p>
-      </div>
+  <a class="btn" href="#">Live Project</a>
+  <a class="btn secondary" href="#">GitHub Repo</a>
+</section>
 
-      <div class="pd-top">
-        <div class="pd-thumb media-box" id="pdThumbBox">
-          <img class="collapsible-media" id="pdThumb" alt="Project thumbnail" loading="lazy" />
-        </div>
-
-        <div class="pd-summary">
-          <div class="section-title">Skills used</div>
-          <div class="skills-float skills-float--compact" id="pdSkills"></div>
-
-          <div class="pd-links">
-            <a class="btn btn--primary" id="pdLive" target="_blank" rel="noreferrer">Live Project</a>
-            <a class="btn btn--ghost" id="pdGitHub" target="_blank" rel="noreferrer">GitHub Repo</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="divider"></div>
-
-      <div class="pd-block">
-        <h2 class="h2">Problem statement</h2>
-        <p id="pdProblem" class="muted"></p>
-      </div>
-
-      <div class="pd-block">
-        <h2 class="h2">Short explanation</h2>
-        <p id="pdExplain" class="muted"></p>
-      </div>
-
-      <div class="pd-block">
-        <h2 class="h2">Flowcharts</h2>
-        <div class="grid grid--2">
-          <div class="media-box">
-            <img class="collapsible-media" id="pdFlow1" alt="Flowchart 1" loading="lazy" />
-          </div>
-          <div class="media-box">
-            <img class="collapsible-media" id="pdFlow2" alt="Flowchart 2" loading="lazy" />
-          </div>
-        </div>
-      </div>
-
-      <div class="pd-block">
-        <h2 class="h2">Outputs</h2>
-        <div class="grid grid--2" id="pdOutputs"></div>
-      </div>
-
-      <div class="pd-block" id="pdVideoBlock">
-        <h2 class="h2">Demo video</h2>
-        <div class="video-embed" id="pdVideo"></div>
-        <p class="muted small">If you provide a Google Drive “preview” link, it will embed cleanly.</p>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer__inner">
-      <span class="muted">© <span id="year"></span> Harsh Bari</span>
-    </div>
-  </footer>
-
-  <script src="assets/js/script.js"></script>
+<script src="assets/js/script.js"></script>
 </body>
 </html>
