@@ -1,119 +1,55 @@
-<!doctype html>
-<html lang="en" data-page="home">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Harsh Bari | Portfolio</title>
-  <meta name="description" content="Portfolio of Harsh Bari - Data Science / Developer" />
+  <meta charset="UTF-8" />
+  <title>Harsh | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
-
 <body>
-  <!-- Loader -->
-  <div id="loader" class="loader" aria-label="Loading">
-    <div class="loader__frame" aria-hidden="true"></div>
-    <div class="loader__text">Loading…</div>
+
+<div id="loader"></div>
+<div id="scroll-progress"></div>
+
+<nav class="navbar">
+  <div class="nav-brand">Harsh</div>
+  <div class="nav-toggle">&#9776;</div>
+  <ul class="nav-links">
+    <li><a class="active" href="index.html">Home</a></li>
+    <li><a href="career_timeline.html">Career Timeline</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="achievements.html">Achievements</a></li>
+    <li><a href="hobbies.html">Hobbies</a></li>
+  </ul>
+</nav>
+
+<section class="container home">
+  <div class="profile-img collapse-if-empty">
+    <!-- Add img tag if photo exists -->
   </div>
 
-  <!-- Click spark container -->
-  <div id="spark-layer" aria-hidden="true"></div>
+  <div class="home-content">
+    <p class="bio">[Short bio goes here]</p>
 
-  <!-- Scroll progress bar -->
-  <div id="scroll-progress" class="scroll-progress" aria-hidden="true"></div>
+    <a class="btn" href="assets/harsh_bari_ds.pdf" download>Download Resume</a>
 
-  <!-- Navbar -->
-  <header class="site-header">
-    <nav class="nav container" aria-label="Primary navigation">
-      <a class="brand" href="index.html">Harsh Bari</a>
-
-      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
-        <span class="nav__hamburger"></span>
-      </button>
-
-      <div class="nav__menu" id="navMenu">
-        <a class="nav__link active" href="index.html">Home</a>
-        <a class="nav__link" href="career_timeline.html">Career Timeline</a>
-        <a class="nav__link" href="projects.html">Projects</a>
-        <a class="nav__link" href="achievements.html">Achievements</a>
-        <a class="nav__link" href="hobbies.html">Hobbies</a>
-      </div>
-    </nav>
-  </header>
-
-  <main class="container page">
-    <section class="hero card">
-      <div class="hero__left">
-        <h1 class="title">Harsh Bari</h1>
-        <p class="muted">
-          <!-- You will write short bio here -->
-          I am an M.Tech graduate in Data Science with a strong focus on <b>Natural Language Processing (NLP).</b> Currently, I work as an <b>Executive Officer in the R&D department</b>, where I contribute to research-driven problem solving and applied data science initiatives.<br><br>
-
-My core expertise lies in NLP techniques, including text processing, feature extraction, and building data-driven solutions for real-world problems. I enjoy translating complex data into meaningful insights and developing scalable, practical models.<br><br>
-
-I am actively seeking a full-time opportunity in <b>Data Science</b> / NLP, where I can apply my technical skills, continue learning, and contribute to impactful projects within a collaborative team.
-        </p>
-
-        <div class="hero__meta">
-          <div class="pill"><span class="pill__label">DOB</span><span>30 April 2001</span></div>
-          <div class="pill"><span class="pill__label">Location</span><span>Moti Daman, Daman & Diu, INDIA</span></div>
-        </div>
-
-        <div class="actions">
-          <a class="btn btn--primary" href="assets/harsh_bari_ds.pdf" download>Download Resume</a>
-          <a class="btn btn--ghost" href="projects.html">View Projects</a>
-        </div>
-
-        <div class="section-title">Connections</div>
-        <div class="links">
-          <a class="link" href="https://www.linkedin.com/in/harshbari153/" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a class="link" href="https://github.com/harshbari-153" target="_blank" rel="noreferrer">GitHub</a>
-          <a class="link" href="mailto:bari.harsh2001@gmail.com">bari.harsh2001@gmail.com</a>
-        </div>
-      </div>
-
-      <div class="hero__right">
-       <div class="media-box">
-        <img
-          src="assets/images/profile.jpg"
-          alt="Profile photo"
-          loading="lazy"
-          class="collapsible-media"
-          onerror="this.closest('.media-box').classList.add('is-collapsed'); this.remove();"
-          style="width:100%; height:100%; object-fit:cover;"/>
-      </div>
+    <div class="skills floating">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"/>
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/streamlit/streamlit-original-wordmark.svg"/>
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original-wordmark.svg"/>
     </div>
 
-    </section>
+    <p><strong>DOB:</strong> [Your DOB]</p>
+    <p><strong>Location:</strong> [Your Location]</p>
 
-    <section class="card">
-      <div class="section-head">
-        <h2 class="h2">Top Skills</h2>
-        <p class="muted"></p>
-      </div>
-
-      <div class="skills-float" aria-label="Skills icons">
-        <img class="skill-icon" alt="Python" loading="lazy"
-             src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" />
-        <img class="skill-icon" alt="Pandas" loading="lazy"
-             src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original-wordmark.svg" />
-        <img class="skill-icon" alt="Streamlit" loading="lazy"
-             src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/streamlit/streamlit-original-wordmark.svg" />
-        <img class="skill-icon" alt=".NET" loading="lazy"
-             src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dot-net/dot-net-original.svg" />
-        <img class="skill-icon" alt="React" loading="lazy"
-             src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" />
-        <img class="skill-icon" alt="SQL" loading="lazy"
-             src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" />
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer__inner">
-      <span class="muted">© <span id="year"></span> Harsh Bari</span>
+    <div class="connections">
+      <a href="#">LinkedIn</a>
+      <a href="#">GitHub</a>
+      <a href="mailto:you@email.com">Email</a>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <script src="assets/js/script.js"></script>
+<script src="assets/js/script.js"></script>
 </body>
 </html>
