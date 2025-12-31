@@ -167,139 +167,157 @@ function getProjectData(projectId) {
     // For now, we'll use localStorage to pass data between pages
     
     const projects = {
-        1: {
-            id: 1,
+        9: {
+            id: 9,
             title: "Next Assignment",
             thumbnail: "",
-            problem: "Businesses struggle to predict customer churn and purchasing behavior, leading to revenue loss and ineffective marketing strategies.",
+            problem: "Automated system generating skill-based assignments using real-time Indian news.",
             startDate: "Sept 2025",
             endDate: "Sept 2025",
-            skills: ["python", "streamlit", "postgresql", "githubactions", "GNews", "S-Transformer"],
-            description: "Developed a machine learning model to predict customer churn and purchasing patterns using historical transaction data. The solution includes a Streamlit dashboard for real-time insights and predictions.",
-            flowcharts: ["flow1.jpg", "flow2.jpg"],
-            outputs: ["output1.jpg", "output2.jpg", "output3.jpg", "output4.jpg"],
+			project_subject: "Data Science, GEN AI",
+			project_tech: "ETL, GNews, S-Transformers",
+            skills: ["python", "streamlit", "postgresql", "githubactions"],
+            description: "A daily script collects five latest Indian news articles, stores them, and uses subject and skill inputs to create two engaging, real-world assignments improving practical understanding.",
+            flowcharts: [],
+            outputs: ["project_9_1.jpg", "project_9_2.jpg", "project_9_3.jpg"],
             demoVideo: "https://drive.google.com/file/d/14lLT0SGEf3hqdU98zH8t8KR5dGPD6KuM/view",
             liveLink: "https://next-assignment.streamlit.app/",
             githubLink: "https://github.com/harshbari-153/Next-Assignment"
         },
-        2: {
-            id: 2,
+        8: {
+            id: 8,
             title: "Knitting Justification Neural Network (KJNN)",
             thumbnail: "",
-            problem: "Organizations receive thousands of documents daily that need to be categorized manually, which is time-consuming and error-prone.",
+            problem: "Neural network for fine-grained claim and justification truth classification.",
             startDate: "Jan 2025",
             endDate: "Jan 2025",
+			project_subject: "MTech Dissertation",
+			project_tech: "sBERT, DistilBERT, GloVe, RoBERTa Base, Word2Vec",
             skills: ["python", "pytorch", "numpy", "scikitlearn", "jupyter"],
-            description: "Built a deep learning model using CNN and NLP techniques to automatically classify documents into predefined categories. The system includes a REST API for integration with existing workflows.",
-            flowcharts: ["flow1.jpg", "flow2.jpg"],
-            outputs: ["output1.jpg", "output2.jpg", "output3.jpg", "output4.jpg"],
+            description: "MTech dissertation proposing a novel neural network classifying claims with supporting justifications into six truth levels, trained on 21k PolitiFact articles to detect fake statements, speeches, and misleading advertisements.",
+            flowcharts: ["project_8_2.png"],
+            outputs: ["project_8_1.png", "project_8_3.jpg", "project_8_4.png", "project_8_5.png"],
             demoVideo: "",
-            liveLink: "https://github.com/harshbari-153/KJNN",
+            liveLink: "",
             githubLink: "https://github.com/harshbari-153/KJNN"
         },
-        3: {
-            id: 3,
+        7: {
+            id: 7,
             title: "PARAKH",
             thumbnail: "",
-            problem: "Organizations receive thousands of documents daily that need to be categorized manually, which is time-consuming and error-prone.",
+            problem: "Trust scoring system for identifying genuine and reliable college reviews.",
             startDate: "Feb 2025",
             endDate: "Feb 2025",
+			project_subject: "Dotslash 8.0 Hackathon at SVNIT, Surat",
+			project_tech: "Streamlit",
             skills: ["python", "streamlit", "firebase", "Gemini_API"],
-            description: "Built a deep learning model using CNN and NLP techniques to automatically classify documents into predefined categories. The system includes a REST API for integration with existing workflows.",
-            flowcharts: ["flow1.jpg", "flow2.jpg"],
-            outputs: ["output1.jpg", "output2.jpg", "output3.jpg", "output4.jpg"],
+            description: "Built during a college hackathon by a three-member team, PARAKH analyzes reviews and assigns a 0–100 trust score, helping students distinguish authentic feedback from biased or fake opinions.",
+            flowcharts: [],
+            outputs: ["project_7_1.jpg", "project_7_2.jpg", "project_7_1.jpg", "project_7_2.jpg"],
             demoVideo: "https://youtu.be/M7bCrkPdl_g?si=wrP2x_tZ8RRD9vpX",
-            liveLink: "https://github.com/harshbari-153/PARAKH",
+            liveLink: "",
             githubLink: "https://github.com/harshbari-153/PARAKH"
-        },
-        4: {
-            id: 4,
+        },/*
+        6: {
+            id: 6,
             title: "Claim Justification Cross Question Generator",
             thumbnail: "",
-            problem: "Organizations receive thousands of documents daily that need to be categorized manually, which is time-consuming and error-prone.",
+            problem: "Automated generation of cross-questions for claim and justification evaluation.",
             startDate: "Dec 2024",
             endDate: "Dec 2024",
+			project_subject: "LLM Text Generation",
+			project_tech: "BART, Pegasus, GPT-2, T5",
             skills: ["python", "scikitlearn", "NLTK", "jupyter"],
-            description: "Built a deep learning model using CNN and NLP techniques to automatically classify documents into predefined categories. The system includes a REST API for integration with existing workflows.",
-            flowcharts: ["flow1.jpg", "flow2.jpg"],
+            description: "Research project extending claim-justification classification by generating logical cross-questions for any given claim and supporting sentences, aiding deeper verification and critical analysis of potentially misleading information.",
+            flowcharts: [],
             outputs: ["output1.jpg", "output2.jpg", "output3.jpg", "output4.jpg"],
             demoVideo: "",
-            liveLink: "https://github.com/harshbari-153/Text_Generation_in_Claim_Justification",
+            liveLink: "",
             githubLink: "https://github.com/harshbari-153/Text_Generation_in_Claim_Justification"
-        },
+        },*/
         5: {
             id: 5,
             title: "BDP Vectorization",
             thumbnail: "",
-            problem: "Organizations receive thousands of documents daily that need to be categorized manually, which is time-consuming and error-prone.",
+            problem: "Novel sentence embedding technique for improved semantic representation in NLP.",
             startDate: "Feb 2024",
             endDate: "April 2024",
+			project_subject: "NLP Research",
+			project_tech: "Sarcasm Detection Dataset",
             skills: ["python", "jupyter"],
-            description: "Built a deep learning model using CNN and NLP techniques to automatically classify documents into predefined categories. The system includes a REST API for integration with existing workflows.",
-            flowcharts: ["flow1.jpg", "flow2.jpg"],
-            outputs: ["output1.jpg", "output2.jpg", "output3.jpg", "output4.jpg"],
+            description: "An NLP research project proposing a new sentence vectorization method, evaluated on an 80k-plus Twitter sarcasm detection dataset, showing effective semantic understanding compared to traditional embeddings.",
+            flowcharts: ["project_5_1.jpg"],
+            outputs: ["project_5_2.png", "project_5_3.png", "project_5_4.png"],
             demoVideo: "",
-            liveLink: "https://github.com/harshbari-153/BDP-Vectorization",
+            liveLink: "",
             githubLink: "https://github.com/harshbari-153/BDP-Vectorization"
         },
-        6: {
-            id: 6,
+        4: {
+            id: 4,
             title: "Chess",
             thumbnail: "",
-            problem: "Organizations receive thousands of documents daily that need to be categorized manually, which is time-consuming and error-prone.",
+            problem: "Console-based single-player chess game using minimax with alpha-beta pruning.",
             startDate: "July 2023",
             endDate: "July 2023",
+			project_subject: "AI, MiniMax Algorithm",
+			project_tech: "Alpha Beta Pruning",
             skills: ["cplusplus"],
-            description: "Built a deep learning model using CNN and NLP techniques to automatically classify documents into predefined categories. The system includes a REST API for integration with existing workflows.",
-            flowcharts: ["flow1.jpg", "flow2.jpg"],
+            description: "A basic console chess game where the player competes against an AI opponent implemented using the minimax algorithm with alpha-beta pruning for efficient decision-making.",
+            flowcharts: [],
             outputs: ["output1.jpg", "output2.jpg", "output3.jpg", "output4.jpg"],
             demoVideo: "",
-            liveLink: "https://github.com/harshbari-153/Chess",
+            liveLink: "",
             githubLink: "https://github.com/harshbari-153/Chess"
         },
-        7: {
-            id: 7,
+        3: {
+            id: 3,
             title: "Generalized Immutable Ledger (GILED)",
             thumbnail: "",
-            problem: "Organizations receive thousands of documents daily that need to be categorized manually, which is time-consuming and error-prone.",
+            problem: "Decentralized immutable ledger system for building trust in shared databases.",
             startDate: "Jan 2023",
             endDate: "Dec 2021",
+			project_subject: "BTech Final Year Project",
+			project_tech: "Blockchain Architecture",
             skills: ["csharp", "visualstudio"],
-            description: "Built a deep learning model using CNN and NLP techniques to automatically classify documents into predefined categories. The system includes a REST API for integration with existing workflows.",
-            flowcharts: ["flow1.jpg", "flow2.jpg"],
-            outputs: ["output1.jpg", "output2.jpg", "output3.jpg", "output4.jpg"],
+            description: "BTech final year project designing a generalized immutable ledger using blockchain architecture, enabling decentralized data storage with transparency, integrity, and trust across distributed database systems.",
+            flowcharts: [],
+            outputs: ["project_3_1.jpg", "project_3_2.jpg", "project_3_3.jpg", "project_3_4.jpg"],
             demoVideo: "",
-            liveLink: "https://github.com/harshbari-153/GILED",
+            liveLink: "",
             githubLink: "https://github.com/harshbari-153/GILED"
         },
-        8: {
-            id: 8,
+        2: {
+            id: 2,
             title: "Harry Porter Game",
-            thumbnail: "",
-            problem: "Organizations receive thousands of documents daily that need to be categorized manually, which is time-consuming and error-prone.",
+            thumbnail: "project_2_1.jpeg",
+            problem: "Console-based adventure game inspired by the Harry Potter storyline.",
             startDate: "Nov 2020",
             endDate: "Nov 2020",
+			project_subject: "TURBO C GAME",
+			project_tech: "Fun Game",
             skills: ["cplusplus"],
-            description: "Built a deep learning model using CNN and NLP techniques to automatically classify documents into predefined categories. The system includes a REST API for integration with existing workflows.",
-            flowcharts: ["flow1.jpg", "flow2.jpg"],
-            outputs: ["output1.jpg", "output2.jpg", "output3.jpg", "output4.jpg"],
+            description: "A colorful console game with seven levels where players destroy horcruxes using wands or swords, following a Harry Potter-inspired storyline with progressive challenges.",
+            flowcharts: [],
+            outputs: ["project_2_1.jpeg", "project_2_2.jpeg", "project_2_3.jpeg", "project_2_4.jpeg", "project_2_5.jpeg"],
             demoVideo: "",
-            liveLink: "https://github.com/harshbari-153/Basic-Turbo-C-Games",
+            liveLink: "",
             githubLink: "https://github.com/harshbari-153/Basic-Turbo-C-Games"
         },
-        9: {
-            id: 9,
+        1: {
+            id: 1,
             title: "Tank Shadow Game",
             thumbnail: "",
-            problem: "Organizations receive thousands of documents daily that need to be categorized manually, which is time-consuming and error-prone.",
+            problem: "Console game featuring an invisible target tracked only through its shadow.",
             startDate: "July 2020",
             endDate: "July 2020",
+			project_subject: "TURBO C GAME",
+			project_tech: "Fun Game",
             skills: ["cplusplus"],
-            description: "Built a deep learning model using CNN and NLP techniques to automatically classify documents into predefined categories. The system includes a REST API for integration with existing workflows.",
-            flowcharts: ["flow1.jpg", "flow2.jpg"],
-            outputs: ["output1.jpg", "output2.jpg", "output3.jpg", "output4.jpg"],
+            description: "A console-based game where a tank aims at a hidden moving target, visible only by its shadow, which moves exactly opposite to the actual target position.",
+            flowcharts: [],
+            outputs: ["project_1_1.jpg", "project_1_2.jpg", "project_1_3.jpg", "project_1_3.jpg"],
             demoVideo: "",
-            liveLink: "https://github.com/harshbari-153/Tank-Shadow-Game",
+            liveLink: "",
             githubLink: "https://github.com/harshbari-153/Tank-Shadow-Game"
         }
     };
@@ -330,12 +348,33 @@ function updateProjectPage(project) {
     if (titleElement && project.title) {
         titleElement.textContent = project.title;
     }
+	
+	// Update project subject
+    const projectSubject = document.querySelector('.project-subject');
+    if (projectSubject && project.project_subject) {
+        projectSubject.textContent = project.project_subject;
+    }
+	
+	// Update project subject
+    const projectTech = document.querySelector('.project-tech');
+    if (projectTech && project.project_tech) {
+        projectTech.textContent = project.project_tech;
+    }
     
-    // Update meta information
+    // Update project date
     const dateElement = document.querySelector('.project-date');
     if (dateElement && project.startDate && project.endDate) {
         dateElement.textContent = `${project.startDate} - ${project.endDate}`;
     }
+	
+	// Project Image
+    const projectImage = document.querySelector('.project-image-main');
+    if (project.thumbnail) {
+        projectImage.src = "assets/images/" + project.thumbnail;
+    }
+	else {
+		projectImage.src = "assets/images/default_project.png";
+	}
     
     // Update problem statement
     const problemElement = document.querySelector('.project-problem');
@@ -360,8 +399,69 @@ function updateProjectPage(project) {
             skillsContainer.appendChild(skillIcon);
         });
     }
+	
+	// flowcharts
+	const flowchartImages = document.querySelector('.flowchart');
+	if (project.flowcharts && project.flowcharts.length > 0) {
+		const imagesGrid = flowchartImages.querySelector('.project-images-grid');
+
+		project.flowcharts.forEach(imagePath => {
+			// Create container div
+			const imageContainer = document.createElement('div');
+			imageContainer.classList.add('project-image-container');
+
+			// Create image element
+			const img = document.createElement('img');
+			img.src = "assets/images/" + imagePath;
+			img.alt = 'Project flowchart';
+			img.style.height = '200px';
+			img.style.width = '100%';
+			img.style.border = "2px solid black";
+			img.style.display = "flex";
+
+			// Append image to container
+			imageContainer.appendChild(img);
+
+			// Append container to grid
+			imagesGrid.appendChild(imageContainer);
+		});
+	} else {
+		flowchartImages.style.display = 'none';
+	}
+
+	
+	// output
+	const outputImages = document.querySelector('.output');
+	if (project.outputs && project.outputs.length > 0) {
+		const imagesGrid = outputImages.querySelector('.project-images-grid');
+
+		project.outputs.forEach(imagePath => {
+			// Create container div
+			const imageContainer = document.createElement('div');
+			imageContainer.classList.add('project-image-container');
+
+			// Create image element
+			const img = document.createElement('img');
+			img.src = "assets/images/" + imagePath;
+			img.alt = 'Project output';
+			img.style.height = '200px';
+			img.style.width = '100%';
+			img.style.border = "2px solid black";
+			img.style.display = "flex";
+
+			// Append image to container
+			imageContainer.appendChild(img);
+
+			// Append container to grid
+			imagesGrid.appendChild(imageContainer);
+		});
+	}
+	else {
+		outputImages.style.display = 'none';
+	}
+	
     
-    // Update links
+	// Watch Demo
     const demoLink = document.querySelector('.demo-link');
     if (demoLink) {
         if (project.demoVideo) {
@@ -372,15 +472,23 @@ function updateProjectPage(project) {
         }
     }
     
+	// Live Link
     const liveLink = document.querySelector('.live-link');
     if (liveLink && project.liveLink) {
         liveLink.href = project.liveLink;
     }
+	else {
+		liveLink.style.display = 'none';
+	}
     
+	// GitHub Link
     const githubLink = document.querySelector('.github-link');
     if (githubLink && project.githubLink) {
         githubLink.href = project.githubLink;
     }
+	else {
+		githubLink.style.display = 'none';
+	}
     
     // Update page title
     document.title = `${project.title} - My Portfolio`;
