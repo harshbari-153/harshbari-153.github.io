@@ -272,7 +272,7 @@ function getProjectData(projectId) {
         3: {
             id: 3,
             title: "Generalized Immutable Ledger (GILED)",
-            thumbnail: "project_3_4.jpg",
+            thumbnail: "project_3_5.jpg",
             problem: "Decentralized immutable ledger system for building trust in shared databases.",
             startDate: "Jan 2023",
             endDate: "Dec 2021",
