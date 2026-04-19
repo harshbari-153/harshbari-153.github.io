@@ -167,6 +167,23 @@ function getProjectData(projectId) {
     // For now, we'll use localStorage to pass data between pages
     
     const projects = {
+		10: {
+            id: 10,
+            title: "Math Olympiad AI Agent",
+            thumbnail: "",
+            problem: "Build an AI agent to solve International Mathematical Olympiad problems across Algebra, Combinatorics, Geometry, and Number Theory in a fully offline environment.",
+            startDate: "December 2025",
+            endDate: "March 2026",
+			project_subject: "AI, LLM Orchestration",
+			project_tech: "vLLM 0.15.1, GPT-OSS-120B (MXFP4), H100 GPU, OpenAI Harmony Response Format",
+            skills: ["python", "kaggle"],
+            description: "Designed a multi-agent AI system with Planner, Solver, and Examiner agents running across 6 parallel threads to solve olympiad-level math problems under a 15-minute global timer. Solving 4/4 easy, 3/4 moderate and 1/2 hard questions from AIMO3 Reference Benchmark Questions.",
+            flowcharts: ["project_10_1.png", "project_10_2.png"],
+            outputs: [],
+            demoVideo: "",
+            liveLink: "",
+            githubLink: "https://www.kaggle.com/code/harshbari/golden-notebook"
+        },
         9: {
             id: 9,
             title: "Next Assignment",
