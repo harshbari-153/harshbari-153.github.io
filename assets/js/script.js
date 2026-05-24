@@ -167,6 +167,23 @@ function getProjectData(projectId) {
     // For now, we'll use localStorage to pass data between pages
     
     const projects = {
+		11: {
+            id: 11,
+            title: "Autonomous EDA Writer AI Agent",
+            thumbnail: "project_11_1.png",
+            problem: "Exploratory Data Analysis is one of the most time-intensive phases of any ML project, often requiring hours of manual effort from experienced data scientists. Proposed a solution that could autonomously plan, code, execute, and interpret EDA end-to-end without human intervention.",
+            startDate: "May 2026",
+            endDate: "May 2026",
+			project_subject: "AI, LLM Orchestration",
+			project_tech: "vLLM 0.20.1, GEMMA 4 26B 4-bit, Nvidia T4 (x2) GPU",
+            skills: ["python", "kaggle"],
+            description: "Built a multi-LLM agentic pipeline powered by Gemma 4 26B that autonomously performs full EDA on any CSV file — covering missing values, outliers, feature analysis, ensembling, and hyperparameter tuning. The system uses a Master LLM to plan stages, parallel Code Writer LLMs to generate and execute code safely on shared memory, and Output Analyser LLMs to produce 40–80 structured insights per run. Deployed on Kaggle with dual Nvidia T4 GPUs using vLLM for high-throughput inference, generating approximately 8 insights every 10 minutes.",
+            flowcharts: ["project_11_2.jpeg"],
+            outputs: ["project_11_3.png", "project_11_4.png", "project_11_5.png"],
+            demoVideo: "https://youtu.be/7pGsFObpbm8",
+            liveLink: "",
+            githubLink: "https://www.kaggle.com/code/harshbari/eda-writter"
+        },
 		10: {
             id: 10,
             title: "Math Olympiad AI Agent",
