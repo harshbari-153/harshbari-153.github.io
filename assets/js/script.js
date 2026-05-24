@@ -187,7 +187,7 @@ function getProjectData(projectId) {
 		10: {
             id: 10,
             title: "Math Olympiad AI Agent",
-            thumbnail: "",
+            thumbnail: "project_10_3.png",
             problem: "Build an AI agent to solve International Mathematical Olympiad problems across Algebra, Combinatorics, Geometry, and Number Theory in a fully offline environment.",
             startDate: "December 2025",
             endDate: "March 2026",
@@ -204,7 +204,7 @@ function getProjectData(projectId) {
         9: {
             id: 9,
             title: "Next Assignment",
-            thumbnail: "",
+            thumbnail: "project_9_4.png",
             problem: "Automated system generating skill-based assignments using real-time Indian news.",
             startDate: "Sept 2025",
             endDate: "Sept 2025",
@@ -221,7 +221,7 @@ function getProjectData(projectId) {
         8: {
             id: 8,
             title: "Knitting Justification Neural Network (KJNN)",
-            thumbnail: "",
+            thumbnail: "project_8_6.png",
             problem: "Neural network for fine-grained claim and justification truth classification.",
             startDate: "Jan 2025",
             endDate: "Jan 2025",
@@ -238,7 +238,7 @@ function getProjectData(projectId) {
         7: {
             id: 7,
             title: "PARAKH",
-            thumbnail: "",
+            thumbnail: "project_7_3.png",
             problem: "Trust scoring system for identifying genuine and reliable college reviews.",
             startDate: "Feb 2025",
             endDate: "Feb 2025",
@@ -272,7 +272,7 @@ function getProjectData(projectId) {
         5: {
             id: 5,
             title: "BDP Vectorization",
-            thumbnail: "",
+            thumbnail: "project_5_5.png",
             problem: "Novel sentence embedding technique for improved semantic representation in NLP.",
             startDate: "Feb 2024",
             endDate: "April 2024",
@@ -289,7 +289,7 @@ function getProjectData(projectId) {
         4: {
             id: 4,
             title: "Chess",
-            thumbnail: "",
+            thumbnail: "project_4_1.jpg",
             problem: "Console-based single-player chess game using minimax with alpha-beta pruning.",
             startDate: "July 2023",
             endDate: "July 2023",
@@ -298,7 +298,7 @@ function getProjectData(projectId) {
             skills: ["cplusplus"],
             description: "A basic console chess game where the player competes against an AI opponent implemented using the minimax algorithm with alpha-beta pruning for efficient decision-making.",
             flowcharts: [],
-            outputs: ["output1.jpg", "output2.jpg", "output3.jpg", "output4.jpg"],
+            outputs: ["project_4_1.jpg"],
             demoVideo: "",
             liveLink: "",
             githubLink: "https://github.com/harshbari-153/Chess"
@@ -340,7 +340,7 @@ function getProjectData(projectId) {
         1: {
             id: 1,
             title: "Tank Shadow Game",
-            thumbnail: "",
+            thumbnail: "project_1_1.jpg",
             problem: "Console game featuring an invisible target tracked only through its shadow.",
             startDate: "July 2020",
             endDate: "July 2020",
@@ -349,7 +349,7 @@ function getProjectData(projectId) {
             skills: ["cplusplus"],
             description: "A console-based game where a tank aims at a hidden moving target, visible only by its shadow, which moves exactly opposite to the actual target position.",
             flowcharts: [],
-            outputs: ["project_1_1.jpg", "project_1_2.jpg", "project_1_3.jpg", "project_1_3.jpg"],
+            outputs: ["project_1_2.jpg", "project_1_3.jpg", "project_1_3.jpg"],
             demoVideo: "",
             liveLink: "",
             githubLink: "https://github.com/harshbari-153/Tank-Shadow-Game"
